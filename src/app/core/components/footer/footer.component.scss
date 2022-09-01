@@ -1,0 +1,24 @@
+.footer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  border-top: 1px solid #c0c0c0;
+}
+
+.footer-left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-left p {
+  margin: auto;
+}
+.footer-left p a {
+  text-decoration: none;
+}
+.footer-right img {
+  width: 100px;
+}
