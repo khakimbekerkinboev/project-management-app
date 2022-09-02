@@ -4,6 +4,7 @@ import { HomepageComponent } from './components/homepage/homepage.component';
 
 @NgModule({
   declarations: [HomepageComponent],
+  exports: [HomepageComponent],
   imports: [CommonModule],
 })
 export class PagesModule {}

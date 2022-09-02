@@ -1,3 +1,4 @@
+import { PagesModule } from './pages/pages.module';
 import { BasicModule } from './basic/basic.module';
 import { CoreModule } from './core/core.module';
 import { NgModule } from '@angular/core';
@@ -7,7 +8,13 @@ import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, CoreModule, BasicModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    CoreModule,
+    BasicModule,
+    PagesModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

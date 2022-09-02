@@ -1,0 +1,185 @@
+.homepage {
+  width: 100%;
+}
+
+//hero
+.hero {
+  margin: 5rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hero-left {
+  max-width: 30rem;
+}
+
+.hero-left h1 {
+  margin-bottom: 1.5rem;
+}
+
+.hero-left p {
+  margin-bottom: 1.5rem;
+}
+
+.hero-left button {
+  color: #696969;
+  background-color: transparent;
+  border: 1px solid #696969;
+  padding: 0.5rem 1.5rem;
+  border-radius: 1.5rem;
+  transition: all 0.3s linear;
+}
+
+.hero-left button:hover {
+  color: black;
+  border: 1px solid black;
+}
+
+.hero-right img {
+  border-radius: 1rem;
+}
+
+//info
+.info {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 5rem;
+  padding: 2.5rem 0;
+  border-top: 1px solid #c0c0c0;
+  border-bottom: 1px solid #c0c0c0;
+}
+
+.info-item {
+  text-align: justify;
+}
+
+//why
+.why {
+  margin: 5rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.why-left img {
+  border-radius: 1rem;
+}
+
+.why-right {
+  max-width: 30rem;
+  text-align: justify;
+}
+
+.why-right h3 {
+  margin-bottom: 1rem;
+}
+
+.why-right p {
+  line-height: 180%;
+}
+
+//introduce
+.introduce {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 5rem;
+}
+
+.introduce-title {
+  margin-bottom: 1.5rem;
+}
+
+.introduce-card {
+  border: 1px solid #c0c0c0;
+  border-radius: 1rem;
+}
+
+.author {
+  max-width: 25rem;
+}
+
+.author-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f96b13;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  height: 7.5rem;
+  margin-bottom: 50px;
+  border-bottom: 1px solid #c0c0c0;
+  position: relative;
+}
+
+.profile-img {
+  width: 100px;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  transform: translate(-50%, -50%);
+  border: 1px solid #c0c0c0;
+}
+
+.author-info {
+  padding: 1rem 1rem 2rem;
+}
+
+.author-info h5 {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.author-info p {
+  text-align: justify;
+  margin-bottom: 1rem;
+}
+
+.author-contacts {
+  display: flex;
+  justify-content: center;
+}
+
+.author-contacts div:nth-child(1) {
+  padding-right: 1.5rem;
+  border-right: 1px solid #c0c0c0;
+}
+
+.author-contacts div:nth-child(2) {
+  padding-left: 1.5rem;
+}
+
+.author-contacts a {
+  text-decoration: none;
+}
+
+.course {
+  max-width: 35rem;
+}
+
+.course-card {
+  padding: 1rem;
+}
+
+.course-img img {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+.course-card h5 {
+  font-weight: bold;
+}
+.course-card p {
+  margin-bottom: 1rem;
+}
+
+.enroll-btn {
+  display: inline-block;
+  text-decoration: none;
+  color: black;
+  border: 1px solid #c0c0c0;
+  padding: 0.3rem 0.75rem;
+  border-radius: 0.3rem;
+}

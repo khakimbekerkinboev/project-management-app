@@ -1,10 +1,14 @@
 .footer {
-  width: 100%;
+  border-top: 1px solid #c0c0c0;
+}
+
+.footer-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem;
-  border-top: 1px solid #c0c0c0;
+  padding: 1rem 0;
 }
 
 .footer-left {
@@ -16,9 +20,11 @@
 .footer-left p {
   margin: auto;
 }
+
 .footer-left p a {
   text-decoration: none;
 }
+
 .footer-right img {
   width: 100px;
 }
