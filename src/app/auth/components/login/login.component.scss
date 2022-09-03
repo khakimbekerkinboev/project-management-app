@@ -1,0 +1,52 @@
+.login-page {
+  padding: 5rem 0 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  width: 22.5rem;
+  border: 1px solid #c0c0c0;
+  padding: 2rem 1.5rem;
+  border-radius: 1rem;
+}
+
+form h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.input-container {
+  margin-bottom: 1rem;
+}
+
+.input-container label {
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.input-container input {
+  width: 100%;
+  padding: 0.3rem;
+  outline: none;
+  border: 1px solid #c0c0c0;
+  border-radius: 0.3rem;
+}
+
+.submit-btn {
+  display: block;
+  margin: 1.5rem auto;
+  border: 1px solid #c0c0c0;
+  padding: 0.3rem 2rem;
+  border-radius: 0.3rem;
+  background-color: transparent;
+}
+
+.form-bottom {
+  text-align: center;
+}
+
+.form-bottom p {
+  margin-bottom: 0;
+}
