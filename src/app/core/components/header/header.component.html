@@ -1,13 +1,14 @@
 <div class="header">
   <div class="header-wrapper">
     <div class="header-left">
-      <app-logo></app-logo>
-
+      <a routerLink="" class="logo">
+        <i class="fa-solid fa-bars-progress"></i>
+        <span>PMS</span>
+      </a>
       <ul class="nav-items">
         <li class="nav-item active"><a href="#">Home</a></li>
         <li class="nav-item"><a href="#">Boards</a></li>
       </ul>
-
     </div>
 
     <div class="header-right">
@@ -15,9 +16,8 @@
         <option value="en">En</option>
         <option value="uz">Uz</option>
       </select>
-
-      <button type="button" class="header-btn">Log in</button>
-      <button type="button" class="header-btn">Sign up</button>
+      <a routerLink="/login" class="header-btn">Log in</a>
+      <a routerLink="/sign-up" class="header-btn">Sign up</a>
     </div>
   </div>
 

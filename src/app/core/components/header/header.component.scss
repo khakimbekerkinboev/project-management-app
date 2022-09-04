@@ -21,7 +21,23 @@
   align-items: center;
   column-gap: 2rem;
 }
+.logo {
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  column-gap: 0.25rem;
+}
 
+.logo i {
+  font-size: 2rem;
+}
+
+.logo span {
+  display: inline-block;
+  font-size: 2rem;
+}
 .nav-items {
   margin: 0;
   padding: 0;
@@ -58,6 +74,8 @@
 }
 
 .header-btn {
+  text-decoration: none;
+  cursor: pointer;
   color: #696969;
   background-color: transparent;
   border: 1px solid #696969;

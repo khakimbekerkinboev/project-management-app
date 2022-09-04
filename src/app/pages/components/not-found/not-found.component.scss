@@ -1,0 +1,18 @@
+.not-found {
+  height: calc(100vh - 150px);
+  display: flex;
+  justify-content: center;
+}
+
+.not-found-center {
+  margin-top: 5rem;
+  text-align: center;
+}
+
+.not-found-center h1 {
+  font-size: 10rem;
+}
+
+.not-found-center h5 {
+  font-size: 2rem;
+}
