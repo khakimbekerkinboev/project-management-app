@@ -17,8 +17,9 @@
         <option value="en">En</option>
         <option value="uz">Uz</option>
       </select>
-      <a routerLink="/login" class="header-btn">Log in</a>
-      <a routerLink="/sign-up" class="header-btn">Sign up</a>
+      <a *ngIf="!authService.isLoggedIn()" routerLink="/login" class="header-btn">Log in</a>
+      <a *ngIf="!authService.isLoggedIn()" routerLink="/sign-up" class="header-btn">Sign up</a>
+      <a *ngIf="authService.isLoggedIn()" routerLink="/" class="header-btn" (click)="authService.logout()">Log out</a>
     </div>
   </div>
 

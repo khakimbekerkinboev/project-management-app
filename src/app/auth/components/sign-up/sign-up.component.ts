@@ -9,12 +9,15 @@ import { Router } from '@angular/router';
 })
 export class SignUpComponent implements OnInit {
   signUpError: boolean = false;
-  constructor(private router: Router, private _auth: AuthService) {}
+  constructor(private router: Router, private authService: AuthService) {}
 
   signUp(user: object) {
-    this._auth.register(user).subscribe((result) => {
+    this.authService.register(user).subscribe((result) => {
       if (result) {
-        this.router.navigate(['/main']);
+        console.log(result);
+        this.authService.loginRightAfterRegister(user, () => {
+          this.router.navigate(['/main']);
+        });
       } else {
         this.signUpError = true;
         setTimeout(() => {

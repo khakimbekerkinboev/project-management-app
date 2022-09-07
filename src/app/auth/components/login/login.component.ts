@@ -9,10 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
   invalidLogin: boolean = false;
-  constructor(private router: Router, private _auth: AuthService) {}
+  constructor(private router: Router, private authService: AuthService) {}
 
   signIn(user: any) {
-    this._auth.login(user).subscribe((result) => {
+    this.authService.login(user).subscribe((result) => {
       if (result) {
         this.router.navigate(['/main']);
       } else {
