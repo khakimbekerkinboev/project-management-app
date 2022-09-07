@@ -32,6 +32,7 @@ form h2 {
   outline: none;
   border: 1px solid #c0c0c0;
   border-radius: 0.3rem;
+  margin-bottom: 0.5rem;
 }
 
 .submit-btn {
@@ -49,4 +50,8 @@ form h2 {
 
 .form-bottom p {
   margin-bottom: 0;
+}
+
+.input-container input.ng-touched.ng-invalid {
+  border: 1px solid red;
 }

@@ -1,23 +1,36 @@
 <div class="login-page">
-  <form action="">
+  <form #f="ngForm" (ngSubmit)="signIn(f.value)">
     <h2 class="form-title">Log in</h2>
+
+    <div *ngIf="invalidLogin" class="alert alert-danger">
+      Invalid login and/or password
+    </div>
 
     <!-- Login input -->
     <div class="input-container">
       <label class="form-label" for="login">Login</label>
-      <input type="text" id="login" />
+      <input required minlength="3" maxlength="8" type="text" id="login" name="login" ngModel #login="ngModel" />
+      <div class="alert alert-danger" *ngIf="login.touched && !(login.valid)">
+        <div *ngIf="login.errors?.['required']">Login is required.</div>
+        <div *ngIf="login.errors?.['minlength']">Login should be minimum 3 characters.</div>
+      </div>
     </div>
 
     <!-- Password input -->
     <div class="input-container">
-      <label class="form-label" for="login">Password</label>
-      <input type="password" id="password" />
+      <label class="form-label" for="password">Password</label>
+      <input required minlength="3" maxlength="8" type="password" id="password" name="password" ngModel
+        #password="ngModel" />
+      <div class="alert alert-danger" *ngIf="password.touched && !(password.valid)">
+        <div *ngIf="password.errors?.['required']">Password is required.</div>
+        <div *ngIf="password.errors?.['minlength']">Password should be minimum 3 characters.</div>
+      </div>
     </div>
 
-    <button type="submit" class="submit-btn">Login</button>
+    <button type="submit" class="submit-btn" [disabled]="!f.valid">Login</button>
 
     <div class="form-bottom">
-      <p>Don't have an account? <a href="">Sign up</a></p>
+      <p>Don't have an account? <a routerLink="">Sign up</a></p>
     </div>
   </form>
 </div>
