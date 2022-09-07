@@ -8,16 +8,20 @@ import { Router } from '@angular/router';
   styleUrls: ['./sign-up.component.scss'],
 })
 export class SignUpComponent implements OnInit {
-  userSaved: boolean = false;
+  signUpError: boolean = false;
   constructor(private router: Router, private _auth: AuthService) {}
 
   signUp(user: object) {
-    this._auth.register(user);
-    this.userSaved = true;
-
-    setTimeout(() => {
-      this.userSaved = false;
-    }, 3000);
+    this._auth.register(user).subscribe((result) => {
+      if (result) {
+        this.router.navigate(['/main']);
+      } else {
+        this.signUpError = true;
+        setTimeout(() => {
+          this.signUpError = false;
+        }, 3000);
+      }
+    });
   }
 
   ngOnInit(): void {}

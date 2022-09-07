@@ -3,13 +3,13 @@
     <h2 class="form-title">Log in</h2>
 
     <div *ngIf="invalidLogin" class="alert alert-danger">
-      Invalid login and/or password
+      Invalid login and/or password.
     </div>
 
     <!-- Login input -->
     <div class="input-container">
       <label class="form-label" for="login">Login</label>
-      <input required minlength="3" maxlength="8" type="text" id="login" name="login" ngModel #login="ngModel" />
+      <input required minlength="3" type="text" id="login" name="login" ngModel #login="ngModel" />
       <div class="alert alert-danger" *ngIf="login.touched && !(login.valid)">
         <div *ngIf="login.errors?.['required']">Login is required.</div>
         <div *ngIf="login.errors?.['minlength']">Login should be minimum 3 characters.</div>
@@ -19,8 +19,7 @@
     <!-- Password input -->
     <div class="input-container">
       <label class="form-label" for="password">Password</label>
-      <input required minlength="3" maxlength="8" type="password" id="password" name="password" ngModel
-        #password="ngModel" />
+      <input required minlength="3" type="password" id="password" name="password" ngModel #password="ngModel" />
       <div class="alert alert-danger" *ngIf="password.touched && !(password.valid)">
         <div *ngIf="password.errors?.['required']">Password is required.</div>
         <div *ngIf="password.errors?.['minlength']">Password should be minimum 3 characters.</div>

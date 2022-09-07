@@ -2,14 +2,14 @@
   <form #f="ngForm" (ngSubmit)="signUp(f.value)">
     <h2 class="form-title">Sign up</h2>
 
-    <div *ngIf="userSaved" class="alert alert-success">
-      You have successfully signed up!
+    <div *ngIf="signUpError" class="alert alert-danger">
+      An error occured, please try again later.
     </div>
 
     <!-- Name input -->
     <div class="input-container">
       <label class="form-label" for="name">Name</label>
-      <input required minlength="3" maxlength="8" type="text" id="name" name="name" ngModel #name="ngModel" />
+      <input required minlength="3" type="text" id="name" name="name" ngModel #name="ngModel" />
       <div class="alert alert-danger" *ngIf="name.touched && !(name.valid)">
         <div *ngIf="name.errors?.['required']">Name is required.</div>
         <div *ngIf="name.errors?.['minlength']">Name should be minimum 3 characters.</div>
@@ -19,7 +19,7 @@
     <!-- Login input -->
     <div class="input-container">
       <label class="form-label" for="login">Login</label>
-      <input required minlength="3" maxlength="8" type="text" id="login" name="login" ngModel #login="ngModel" />
+      <input required minlength="3" type="text" id="login" name="login" ngModel #login="ngModel" />
       <div class="alert alert-danger" *ngIf="login.touched && !(login.valid)">
         <div *ngIf="login.errors?.['required']">Login is required.</div>
         <div *ngIf="login.errors?.['minlength']">Login should be minimum 3 characters.</div>
@@ -29,8 +29,7 @@
     <!-- Password input -->
     <div class="input-container">
       <label class="form-label" for="password">Password</label>
-      <input required minlength="3" maxlength="8" type="password" id="password" name="password" ngModel
-        #password="ngModel" />
+      <input required minlength="3" type="password" id="password" name="password" ngModel #password="ngModel" />
       <div class="alert alert-danger" *ngIf="password.touched && !(password.valid)">
         <div *ngIf="password.errors?.['required']">Password is required.</div>
         <div *ngIf="password.errors?.['minlength']">Password should be minimum 3 characters.</div>

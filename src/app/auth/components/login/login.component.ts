@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
   signIn(user: any) {
     this._auth.login(user).subscribe((result) => {
       if (result) {
-        this.router.navigate(['/']);
+        this.router.navigate(['/main']);
       } else {
         this.invalidLogin = true;
         setTimeout(() => {
