@@ -6,9 +6,11 @@
         <i class="fa-solid fa-bars-progress"></i>
         <span>PMS</span>
       </a>
-      <ul class="nav-items">
-        <li class="nav-item active"><a href="#">Home</a></li>
-        <li class="nav-item"><a href="#">Boards</a></li>
+      <ul *ngIf="authService.isLoggedIn()" class="nav-items">
+        <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a
+            routerLink="/">Home</a></li>
+        <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a
+            routerLink="/main">Boards</a></li>
       </ul>
     </div>
 
@@ -17,9 +19,25 @@
         <option value="en">En</option>
         <option value="uz">Uz</option>
       </select>
-      <a *ngIf="!authService.isLoggedIn()" routerLink="/login" class="header-btn">Log in</a>
-      <a *ngIf="!authService.isLoggedIn()" routerLink="/sign-up" class="header-btn">Sign up</a>
-      <a *ngIf="authService.isLoggedIn()" routerLink="/" class="header-btn" (click)="authService.logout()">Log out</a>
+
+      <a *ngIf="!authService.isLoggedIn()" routerLink="/login" class="login-btn">Log in</a>
+      <a *ngIf="!authService.isLoggedIn()" routerLink="/sign-up" class="signup-btn">Sign up</a>
+
+
+      <a *ngIf="authService.isLoggedIn()" class="account-btn account-inactive" (click)="toggleProfile()">
+        <i class="fa-regular fa-circle-user"></i>
+      </a>
+
+      <div class="profile-container profile-hidden">
+        <div>
+          <a routerLink="/" (click)="closeProfile()">Edit profile</a>
+        </div>
+        <div>
+          <a routerLink="/" (click)="authService.logout()" (click)="closeProfile()">Log
+            out</a>
+        </div>
+
+      </div>
     </div>
   </div>
 

@@ -9,5 +9,37 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
   constructor(public authService: AuthService) {}
 
+  toggleProfile() {
+    const profileContainer = document.querySelector('.profile-container');
+    const accountBtn = document.querySelector('.account-btn');
+
+    profileContainer?.classList.toggle('profile-hidden');
+    accountBtn?.classList.toggle('account-inactive');
+  }
+
+  closeProfile() {
+    const profileContainer = document.querySelector('.profile-container');
+    const accountBtn = document.querySelector('.account-btn');
+
+    profileContainer?.classList.add('profile-hidden');
+    accountBtn?.classList.add('account-inactive');
+  }
+
   ngOnInit(): void {}
 }
+
+window.addEventListener('click', (e: any) => {
+  const profileContainer = document.querySelector('.profile-container');
+  const accountBtn = document.querySelector('.account-btn');
+  const isNotAccountBtn =
+    !e.target?.classList?.contains('fa-circle-user') &&
+    !e.target?.classList?.contains('account-btn');
+  const profileIsOpen =
+    !profileContainer?.classList?.contains('profile-hidden') &&
+    !accountBtn?.classList?.contains('account-inactive');
+
+  if (isNotAccountBtn && profileIsOpen) {
+    profileContainer?.classList.add('profile-hidden');
+    accountBtn?.classList.add('account-inactive');
+  }
+});
