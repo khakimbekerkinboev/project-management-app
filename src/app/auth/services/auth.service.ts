@@ -70,4 +70,8 @@ export class AuthService {
   logout() {
     localStorage.removeItem('token');
   }
+
+  getToken() {
+    return localStorage.getItem('token');
+  }
 }

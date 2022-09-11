@@ -1,3 +1,84 @@
 <div class="main-page">
-  <h1>Main Page</h1>
+  <h2 class="main-title">All Projects</h2>
+
+  <div class="main-function">
+    <button class="project-create-btn" (click)="showProjectCreate()">Create</button>
+
+    <div class="search-box">
+      <label for="search"><i class="fa-solid fa-magnifying-glass"></i></label>
+      <input type="text" id="search" placeholder="Search">
+    </div>
+
+  </div>
+
+  <div class="main-center">
+
+    <div class="project" *ngFor="let board of boards">
+      <div class="project-title">
+        <h4>{{board['title']}}</h4>
+      </div>
+
+      <div class="project-desc">
+        <p>{{board['description']}}</p>
+      </div>
+
+      <div class="project-btns">
+        <div>
+          <button class="project-tasks">Tasks</button>
+        </div>
+
+        <div>
+          <button class="project-edit" (click)="showProjectUpdate(board)"><i class="fa-solid fa-pencil"></i></button>
+          <button class="project-delete" (click)="deleteBoard(board)"><i class="fa-solid fa-trash"></i></button>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="project-create project-create-hidden" (click)="hideProjectCreate($event)">
+    <form action="" #createForm="ngForm" (ngSubmit)="createBoard(createForm.value)">
+      <h2>New project</h2>
+
+      <div class="input-container">
+        <label for="title" class="form-label">Title</label>
+        <input required maxlength="14" type="text" id="title" name="title" ngModel>
+      </div>
+
+      <div class="input-container">
+        <label for="description" class="form-label">Description</label>
+        <textarea required maxlength="50" type="text" id="description" name="description" ngModel></textarea>
+      </div>
+
+      <button type="submit" class="submit-btn" [disabled]="!createForm.valid">Create</button>
+
+      <div class="exit-btn">
+        <i class="fa-regular fa-circle-xmark"></i>
+      </div>
+    </form>
+  </div>
+
+  <div class="project-update project-update-hidden" (click)="hideProjectUpdate($event)">
+    <form action="" #updateForm="ngForm" (ngSubmit)="updateBoard(updateForm.value)">
+      <h2>Project</h2>
+
+      <div class="input-container">
+        <label for="title" class="form-label">New name</label>
+        <input required maxlength="15" type="text" id="title" name="title" ngModel>
+      </div>
+
+      <div class="input-container">
+        <label for="description" class="form-label">New Description</label>
+        <textarea required maxlength="50" type="text" id="description" name="description" ngModel></textarea>
+      </div>
+
+      <button type="submit" class="submit-btn" [disabled]="!updateForm.valid">Update</button>
+
+      <div class=" exit-btn">
+        <i class="fa-regular fa-circle-xmark"></i>
+      </div>
+    </form>
+  </div>
+
 </div>
