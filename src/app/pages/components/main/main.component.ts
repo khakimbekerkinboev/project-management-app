@@ -26,11 +26,14 @@ export class MainComponent implements OnInit {
     this.closeProjectCreateWindow();
   }
 
-  deleteBoard(board: object) {
-    this.boardService.delete(board).subscribe((res) => {
-      const index = this.boards.indexOf(board);
+  deleteBoard() {
+    this.boardService.delete(this.currentBoard).subscribe((res) => {
+      const index = this.boards.indexOf(this.currentBoard);
       this.boards.splice(index, 1);
+      this.currentBoard = {};
     });
+
+    this.closeProjectDeleteWindow();
   }
 
   updateBoard(newBoard: Object) {
@@ -67,9 +70,30 @@ export class MainComponent implements OnInit {
     descriptionInput.placeholder = board?.description;
   }
 
+  showProjectDelete(board: any) {
+    const projectDelete = document.querySelector('.project-delete');
+    projectDelete?.classList.remove('project-delete-hidden');
+
+    this.currentBoard = board;
+
+    const deleteTitle: any = projectDelete?.querySelector('h6');
+    deleteTitle.innerHTML = `Are you sure you want to delete <strong>${board.title}</strong>?`;
+
+    const deleteBtn = projectDelete?.querySelector('.delete-btn');
+    deleteBtn?.addEventListener('click', () => {
+      this.deleteBoard();
+    });
+
+    const cancelBtn = projectDelete?.querySelector('.cancel-btn');
+    cancelBtn?.addEventListener('click', () => {
+      this.closeProjectDeleteWindow();
+    });
+  }
+
   closeProjectCreateWindow() {
     const projectCreate = document.querySelector('.project-create');
     projectCreate?.classList.add('project-create-hidden');
+
     const createForm = projectCreate?.querySelector('form');
     createForm?.reset();
   }
@@ -77,8 +101,14 @@ export class MainComponent implements OnInit {
   closeProjectUpdateWindow() {
     const projectUpdate = document.querySelector('.project-update');
     projectUpdate?.classList.add('project-update-hidden');
+
     const updateForm = projectUpdate?.querySelector('form');
     updateForm?.reset();
+  }
+
+  closeProjectDeleteWindow() {
+    const projectDelete = document.querySelector('.project-delete');
+    projectDelete?.classList.add('project-delete-hidden');
   }
 
   hideProjectCreate($event: any) {
@@ -96,6 +126,12 @@ export class MainComponent implements OnInit {
       $event.target.classList.contains('fa-circle-xmark')
     ) {
       this.closeProjectUpdateWindow();
+    }
+  }
+
+  hideProjectDelete($event: any) {
+    if ($event.target.classList.contains('project-delete')) {
+      this.closeProjectDeleteWindow();
     }
   }
 

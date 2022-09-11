@@ -5,10 +5,11 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { MainComponent } from './components/main/main.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { FormsModule } from '@angular/forms';
+import { CoreModule } from '../core/core.module';
 
 @NgModule({
   declarations: [HomepageComponent, NotFoundComponent, MainComponent],
   exports: [HomepageComponent, NotFoundComponent],
-  imports: [CommonModule, FormsModule, AppRoutingModule],
+  imports: [CommonModule, FormsModule, AppRoutingModule, CoreModule],
 })
 export class PagesModule {}

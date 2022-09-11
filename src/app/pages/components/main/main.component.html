@@ -28,8 +28,10 @@
         </div>
 
         <div>
-          <button class="project-edit" (click)="showProjectUpdate(board)"><i class="fa-solid fa-pencil"></i></button>
-          <button class="project-delete" (click)="deleteBoard(board)"><i class="fa-solid fa-trash"></i></button>
+          <button class="project-edit-btn" (click)="showProjectUpdate(board)"><i
+              class="fa-solid fa-pencil"></i></button>
+          <button class="project-delete-btn" (click)="showProjectDelete(board)"><i
+              class="fa-solid fa-trash"></i></button>
         </div>
       </div>
 
@@ -79,6 +81,10 @@
         <i class="fa-regular fa-circle-xmark"></i>
       </div>
     </form>
+  </div>
+
+  <div class="project-delete project-delete-hidden" (click)="hideProjectDelete($event)">
+    <app-confirm-delete></app-confirm-delete>
   </div>
 
 </div>
