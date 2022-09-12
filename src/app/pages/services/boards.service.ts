@@ -1,3 +1,5 @@
+import { map, catchError } from 'rxjs/operators';
+import { of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
@@ -17,10 +19,10 @@ export class BoardsService {
   }
 
   update(board: any, newBoard: any) {
-    return this.http.put(`${this._url}/${board.id}`, newBoard);
+    return this.http.put(this._url + '/' + board.id, newBoard);
   }
 
   delete(board: any) {
-    return this.http.delete(`${this._url}/${board.id}`);
+    return this.http.delete(this._url + '/' + board.id);
   }
 }

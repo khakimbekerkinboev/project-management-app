@@ -1,0 +1,45 @@
+<div class="edit-profile-page">
+  <form #f="ngForm">
+    <h2 class="form-title">Edit profile</h2>
+
+    <div *ngIf="" class="alert alert-danger">
+      An error occured, please try again later.
+    </div>
+
+    <!-- Name input -->
+    <div class="input-container">
+      <label class="form-label" for="name">Name</label>
+      <input required minlength="3" type="text" id="name" name="name" ngModel #name="ngModel" />
+      <div class="alert alert-danger" *ngIf="name.touched && !(name.valid)">
+        <div *ngIf="name.errors?.['required']">Name is required.</div>
+        <div *ngIf="name.errors?.['minlength']">Name should be minimum 3 characters.</div>
+      </div>
+    </div>
+
+    <!-- Login input -->
+    <div class="input-container">
+      <label class="form-label" for="login">Login</label>
+      <input required minlength="3" type="text" id="login" name="login" ngModel #login="ngModel" />
+      <div class="alert alert-danger" *ngIf="login.touched && !(login.valid)">
+        <div *ngIf="login.errors?.['required']">Login is required.</div>
+        <div *ngIf="login.errors?.['minlength']">Login should be minimum 3 characters.</div>
+      </div>
+    </div>
+
+    <!-- Password input -->
+    <div class="input-container">
+      <label class="form-label" for="password">Password</label>
+      <input required minlength="3" type="password" id="password" name="password" ngModel #password="ngModel" />
+      <div class="alert alert-danger" *ngIf="password.touched && !(password.valid)">
+        <div *ngIf="password.errors?.['required']">Password is required.</div>
+        <div *ngIf="password.errors?.['minlength']">Password should be minimum 3 characters.</div>
+      </div>
+    </div>
+
+    <button type="submit" class="submit-btn" [disabled]="!f.valid">Save</button>
+
+    <div class="form-bottom">
+      <p>Already have an account? <a routerLink="/login">Log in</a></p>
+    </div>
+  </form>
+</div>

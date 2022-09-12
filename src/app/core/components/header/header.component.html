@@ -24,13 +24,16 @@
       <a *ngIf="!authService.isLoggedIn()" routerLink="/sign-up" class="signup-btn">Sign up</a>
 
 
-      <a *ngIf="authService.isLoggedIn()" class="account-btn account-inactive" (click)="toggleProfile()">
-        <i class="fa-regular fa-circle-user"></i>
-      </a>
+      <div class="user-profile" *ngIf="authService.isLoggedIn()">
+        <i class="fa-solid fa-circle-user"></i>
+
+        <a (click)="toggleProfile()" class="account-btn account-inactive"></a>
+      </div>
+
 
       <div class="profile-container profile-hidden">
         <div>
-          <a routerLink="/" (click)="closeProfile()">Edit profile</a>
+          <a routerLink="/edit-profile" (click)="closeProfile()">Edit profile</a>
         </div>
         <div>
           <a routerLink="/" (click)="authService.logout()" (click)="closeProfile()">Log

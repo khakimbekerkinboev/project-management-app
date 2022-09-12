@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map, catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
+import jwtDecode from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root',
@@ -10,6 +11,8 @@ import { of } from 'rxjs';
 export class AuthService {
   private _registerUrl = 'https://proj-manag-sys.herokuapp.com/signup';
   private _loginUrl = 'https://proj-manag-sys.herokuapp.com/signin';
+  private _usersUrl = 'https://proj-manag-sys.herokuapp.com/users';
+
   helper = new JwtHelperService();
 
   constructor(private http: HttpClient) {}
@@ -73,5 +76,21 @@ export class AuthService {
 
   getToken() {
     return localStorage.getItem('token');
+  }
+
+  getCurrentUser() {
+    const token: any = localStorage.getItem('token');
+    const decoded: any = jwtDecode(token);
+    const userId = decoded.userId;
+
+    return this.http.get(this._usersUrl + '/' + userId);
+  }
+
+  setCurrentUserToProfile() {
+    this.getCurrentUser().subscribe((res: any) => {
+      const accountBtn: any = document.querySelector('.account-btn');
+      accountBtn.innerHTML =
+        res.name + ' ' + '<i class="fa-solid fa-angle-down"></i>';
+    });
   }
 }

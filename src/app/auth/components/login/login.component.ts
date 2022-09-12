@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
   signIn(user: any) {
     this.authService.login(user).subscribe((result) => {
       if (result) {
+        this.authService.setCurrentUserToProfile();
         this.router.navigate(['/main']);
       } else {
         this.invalidLogin = true;

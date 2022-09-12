@@ -7,11 +7,17 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { WhenLoggedIn } from './auth/services/when-logged-in.service';
 import { WhenLoggedOut } from './auth/services/when-logged-out.service';
+import { EditProfileComponent } from './auth/components/edit-profile/edit-profile.component';
 
 const routes: Routes = [
   { path: '', component: HomepageComponent },
   { path: 'login', component: LoginComponent, canActivate: [WhenLoggedOut] },
   { path: 'sign-up', component: SignUpComponent, canActivate: [WhenLoggedOut] },
+  {
+    path: 'edit-profile',
+    component: EditProfileComponent,
+    canActivate: [WhenLoggedIn],
+  },
   { path: 'main', component: MainComponent, canActivate: [WhenLoggedIn] },
   { path: '**', component: NotFoundComponent },
 ];

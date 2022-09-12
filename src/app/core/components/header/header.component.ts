@@ -7,7 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  constructor(public authService: AuthService) {}
+  constructor(public authService: AuthService) {
+    this.authService.setCurrentUserToProfile();
+  }
 
   toggleProfile() {
     const profileContainer = document.querySelector('.profile-container');
@@ -32,7 +34,7 @@ window.addEventListener('click', (e: any) => {
   const profileContainer = document.querySelector('.profile-container');
   const accountBtn = document.querySelector('.account-btn');
   const isNotAccountBtn =
-    !e.target?.classList?.contains('fa-circle-user') &&
+    !e.target?.classList?.contains('fa-chevron-down') &&
     !e.target?.classList?.contains('account-btn');
   const profileIsOpen =
     !profileContainer?.classList?.contains('profile-hidden') &&

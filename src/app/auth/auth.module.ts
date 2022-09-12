@@ -4,9 +4,10 @@ import { LoginComponent } from './components/login/login.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from '../app-routing.module';
+import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 
 @NgModule({
-  declarations: [LoginComponent, SignUpComponent],
+  declarations: [LoginComponent, SignUpComponent, EditProfileComponent],
   exports: [LoginComponent, SignUpComponent],
   imports: [CommonModule, FormsModule, AppRoutingModule],
 })

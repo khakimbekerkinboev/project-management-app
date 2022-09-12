@@ -19,7 +19,7 @@ export class MainComponent implements OnInit {
   createBoard(newBoard: object) {
     this.boardService.create(newBoard).subscribe((res) => {
       if (res) {
-        this.boards.push(newBoard);
+        this.boards.push(res);
       }
     });
 
@@ -29,7 +29,12 @@ export class MainComponent implements OnInit {
   deleteBoard() {
     this.boardService.delete(this.currentBoard).subscribe((res) => {
       const index = this.boards.indexOf(this.currentBoard);
-      this.boards.splice(index, 1);
+      // console.log(index);
+
+      if (index > -1) {
+        this.boards.splice(index, 1);
+      }
+
       this.currentBoard = {};
     });
 
@@ -82,11 +87,13 @@ export class MainComponent implements OnInit {
     const deleteBtn = projectDelete?.querySelector('.delete-btn');
     deleteBtn?.addEventListener('click', () => {
       this.deleteBoard();
+      deleteBtn?.replaceWith(deleteBtn.cloneNode(true));
     });
 
     const cancelBtn = projectDelete?.querySelector('.cancel-btn');
     cancelBtn?.addEventListener('click', () => {
       this.closeProjectDeleteWindow();
+      cancelBtn?.replaceWith(cancelBtn.cloneNode(true));
     });
   }
 

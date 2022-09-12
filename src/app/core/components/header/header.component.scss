@@ -128,23 +128,26 @@
   border-color: #0a58ca;
 }
 
-.account-btn {
+.user-profile {
   display: flex;
-  justify-content: center;
   align-items: center;
-  border-radius: 50%;
+  column-gap: 0.5rem;
+  text-decoration: none;
+}
+
+.user-profile .fa-circle-user {
+  line-height: 0;
+  font-size: 1.8rem;
+}
+
+.account-btn {
   text-decoration: none;
   color: black;
-  font-size: 2rem;
   cursor: pointer;
   transition: all 0.3s linear;
 }
 
-.account-btn i {
-  line-height: 0;
-}
-
-.account-btn:hover {
+.user-profile a:hover {
   color: black;
 }
 
@@ -154,7 +157,7 @@
 
 .profile-container {
   position: absolute;
-  right: 0;
+  right: 0rem;
   top: 2.5rem;
   background-color: white;
   border: 1px solid #696969;
