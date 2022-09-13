@@ -1,3 +1,4 @@
+import { UserService } from './../../../auth/services/user.service';
 import { AuthService } from './../../../auth/services/auth.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -7,8 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  constructor(public authService: AuthService) {
-    this.authService.setCurrentUserToProfile();
+  constructor(
+    public authService: AuthService,
+    private userService: UserService
+  ) {
+    this.userService.setCurrentUserToProfile();
   }
 
   toggleProfile() {

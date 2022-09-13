@@ -1,3 +1,4 @@
+import { UserService } from './../../services/user.service';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from './../../services/auth.service';
 import { Router } from '@angular/router';
@@ -9,13 +10,17 @@ import { Router } from '@angular/router';
 })
 export class SignUpComponent implements OnInit {
   signUpError: boolean = false;
-  constructor(private router: Router, private authService: AuthService) {}
+  constructor(
+    private router: Router,
+    private authService: AuthService,
+    private userService: UserService
+  ) {}
 
   signUp(user: object) {
     this.authService.register(user).subscribe((result) => {
       if (result) {
-        console.log(result);
         this.authService.loginRightAfterRegister(user, () => {
+          this.userService.setCurrentUserToProfile();
           this.router.navigate(['/main']);
         });
       } else {

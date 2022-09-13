@@ -11,6 +11,7 @@ import { AuthService } from './auth/services/auth.service';
 import { WhenLoggedOut } from './auth/services/when-logged-out.service';
 import { BoardsService } from './pages/services/boards.service';
 import { TokenInterceptorService } from './auth/interceptors/token-interceptor.service';
+import { UserService } from './auth/services/user.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -27,6 +28,7 @@ import { TokenInterceptorService } from './auth/interceptors/token-interceptor.s
     WhenLoggedIn,
     WhenLoggedOut,
     BoardsService,
+    UserService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptorService,

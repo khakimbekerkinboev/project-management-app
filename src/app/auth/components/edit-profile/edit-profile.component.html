@@ -1,8 +1,8 @@
 <div class="edit-profile-page">
-  <form #f="ngForm">
+  <form #f="ngForm" (ngSubmit)="updateUser(f.value)">
     <h2 class="form-title">Edit profile</h2>
 
-    <div *ngIf="" class="alert alert-danger">
+    <div *ngIf="updateUserError" class="alert alert-danger">
       An error occured, please try again later.
     </div>
 
@@ -39,7 +39,12 @@
     <button type="submit" class="submit-btn" [disabled]="!f.valid">Save</button>
 
     <div class="form-bottom">
-      <p>Already have an account? <a routerLink="/login">Log in</a></p>
+      <button (click)="showAccountDelete()">Delete</button>
+      <p> your account?</p>
     </div>
   </form>
+
+  <div class="account-delete account-delete-hidden" (click)="hideAccountDelete($event)">
+    <app-confirm-delete></app-confirm-delete>
+  </div>
 </div>

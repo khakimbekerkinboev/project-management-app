@@ -29,7 +29,6 @@ export class MainComponent implements OnInit {
   deleteBoard() {
     this.boardService.delete(this.currentBoard).subscribe((res) => {
       const index = this.boards.indexOf(this.currentBoard);
-      // console.log(index);
 
       if (index > -1) {
         this.boards.splice(index, 1);

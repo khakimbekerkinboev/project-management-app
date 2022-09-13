@@ -8,7 +8,7 @@
 form {
   width: 22.5rem;
   border: 1px solid #c0c0c0;
-  padding: 2rem 1.5rem;
+  padding: 2rem 1.5rem 1.5rem;
   border-radius: 1rem;
 }
 
@@ -54,9 +54,33 @@ form h2 {
 }
 
 .form-bottom p {
+  display: inline;
   margin-bottom: 0;
+}
+
+.form-bottom button {
+  border: none;
+  background-color: transparent;
+  color: red;
 }
 
 .input-container input.ng-touched.ng-invalid {
   border: 1px solid red;
+}
+
+.account-delete {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.account-delete-hidden {
+  display: none;
 }
