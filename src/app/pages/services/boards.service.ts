@@ -14,6 +14,10 @@ export class BoardsService {
     return this.http.get(this._url);
   }
 
+  getSpecificBoard(id: string) {
+    return this.http.get(this._url + '/' + id);
+  }
+
   create(newBoard: object) {
     return this.http.post(this._url, newBoard);
   }

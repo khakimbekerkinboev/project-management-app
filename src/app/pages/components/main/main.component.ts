@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { BoardsService } from '../../services/boards.service';
 
@@ -10,7 +11,7 @@ export class MainComponent implements OnInit {
   boards: any = [];
   currentBoard: any = {};
 
-  constructor(private boardService: BoardsService) {
+  constructor(private boardService: BoardsService, private router: Router) {
     this.boardService.get().subscribe((res) => {
       this.boards = res;
     });
@@ -50,6 +51,10 @@ export class MainComponent implements OnInit {
     });
 
     this.closeProjectUpdateWindow();
+  }
+
+  navigateToBoard(board: any) {
+    this.router.navigate(['/boards', board.id]);
   }
 
   /////////////// Open & Close Windows ///////////////////////

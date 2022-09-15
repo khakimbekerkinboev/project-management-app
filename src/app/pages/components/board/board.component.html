@@ -1,0 +1,63 @@
+<div class="board-page">
+  <div class="board-top">
+    <a routerLink="/main" class="back-btn"><i class="fa-solid fa-chevron-left"></i>
+      <p>Boards</p>
+    </a>
+    <h5 class="board-title"></h5>
+  </div>
+
+  <div class="columns">
+    <div class="column-wrapper" *ngFor="let column of columns">
+      <div class="column">
+        <div class="column-title-container">
+          <button class="column-title">{{column.title}}</button>
+          <div class="column-title-edit hidden">
+            <input type="text">
+            <div class="column-title-edit-btns">
+              <button>Cancel</button><button>Submit</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="tasks">
+          <div class="task">
+            <h6>Task 1</h6>
+            <p>Lorem ipsum dolor sit</p>
+            <button><i class="fa-solid fa-xmark"></i></button>
+          </div>
+          <!-- <div class="task">
+            <h6>Task 1</h6>
+            <p>Lorem ipsum dolor sit</p>
+            <button><i class="fa-solid fa-xmark"></i></button>
+          </div> -->
+        </div>
+
+        <div class="column-bottom">
+          <button class="add-task-btn"><i class="fa-solid fa-plus"></i></button>
+          <button class="delete-column-btn"><i class="fa-solid fa-trash-can"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <button class="create-column-btn" (click)="toggleColumnCreateWindow()">
+      Add column
+    </button>
+  </div>
+
+  <div class="column-create column-create-hidden" (click)="hideColumnCreate($event)">
+    <form action="" #createForm="ngForm" (ngSubmit)="createColumn(createForm.value)">
+      <h3>New column</h3>
+
+      <div class="input-container">
+        <label for="title" class="form-label">Title</label>
+        <input required maxlength="14" type="text" id="title" name="title" ngModel>
+      </div>
+
+      <button type="submit" class="submit-btn" [disabled]="!createForm.valid">Save</button>
+
+      <div class="exit-btn">
+        <i class="fa-regular fa-circle-xmark"></i>
+      </div>
+    </form>
+  </div>
+</div>

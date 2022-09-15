@@ -8,6 +8,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { WhenLoggedIn } from './auth/services/when-logged-in.service';
 import { WhenLoggedOut } from './auth/services/when-logged-out.service';
 import { EditProfileComponent } from './auth/components/edit-profile/edit-profile.component';
+import { BoardComponent } from './pages/components/board/board.component';
 
 const routes: Routes = [
   { path: '', component: HomepageComponent },
@@ -19,6 +20,11 @@ const routes: Routes = [
     canActivate: [WhenLoggedIn],
   },
   { path: 'main', component: MainComponent, canActivate: [WhenLoggedIn] },
+  {
+    path: 'boards/:id',
+    component: BoardComponent,
+    canActivate: [WhenLoggedIn],
+  },
   { path: '**', component: NotFoundComponent },
 ];
 

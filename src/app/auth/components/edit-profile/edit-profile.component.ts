@@ -45,6 +45,9 @@ export class EditProfileComponent implements OnInit {
     this.userService.delete().subscribe((res) => {
       this.authService.logout();
     });
+
+    this.closeAccountDeleteWindow();
+    this.router.navigate(['/']);
   }
 
   showAccountDelete() {

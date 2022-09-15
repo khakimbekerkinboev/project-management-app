@@ -1,18 +1,13 @@
 <div class="main-page">
-  <h2 class="main-title">All Projects</h2>
-
-  <div class="main-function">
-    <button class="project-create-btn" (click)="showProjectCreate()">Create</button>
-
+  <div class="main-top">
+    <h2 class="main-title">Boards</h2>
     <div class="search-box">
       <label for="search"><i class="fa-solid fa-magnifying-glass"></i></label>
       <input type="text" id="search" placeholder="Search">
     </div>
-
   </div>
 
   <div class="main-center">
-
     <div class="project" *ngFor="let board of boards">
       <div class="project-title">
         <h4>{{board['title']}}</h4>
@@ -24,24 +19,25 @@
 
       <div class="project-btns">
         <div>
-          <button class="project-tasks">Tasks</button>
+          <button class="project-tasks" (click)="navigateToBoard(board)">Open</button>
         </div>
 
         <div>
           <button class="project-edit-btn" (click)="showProjectUpdate(board)"><i
               class="fa-solid fa-pencil"></i></button>
           <button class="project-delete-btn" (click)="showProjectDelete(board)"><i
-              class="fa-solid fa-trash"></i></button>
+              class="fa-solid fa-trash-can"></i></button>
         </div>
       </div>
 
     </div>
 
+    <button class="project-create-btn" (click)="showProjectCreate()">Add board</button>
   </div>
 
   <div class="project-create project-create-hidden" (click)="hideProjectCreate($event)">
     <form action="" #createForm="ngForm" (ngSubmit)="createBoard(createForm.value)">
-      <h2>New project</h2>
+      <h2>New board</h2>
 
       <div class="input-container">
         <label for="title" class="form-label">Title</label>
