@@ -1,6 +1,6 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { BoardsService } from '../../services/boards.service';
+import { MainService } from '../../services/main.service';
 
 @Component({
   selector: 'app-main',
@@ -11,14 +11,14 @@ export class MainComponent implements OnInit {
   boards: any = [];
   currentBoard: any = {};
 
-  constructor(private boardService: BoardsService, private router: Router) {
-    this.boardService.get().subscribe((res) => {
+  constructor(private mainService: MainService, private router: Router) {
+    this.mainService.get().subscribe((res) => {
       this.boards = res;
     });
   }
 
   createBoard(newBoard: object) {
-    this.boardService.create(newBoard).subscribe((res) => {
+    this.mainService.create(newBoard).subscribe((res) => {
       if (res) {
         this.boards.push(res);
       }
@@ -28,7 +28,7 @@ export class MainComponent implements OnInit {
   }
 
   deleteBoard() {
-    this.boardService.delete(this.currentBoard).subscribe((res) => {
+    this.mainService.delete(this.currentBoard).subscribe((res) => {
       const index = this.boards.indexOf(this.currentBoard);
 
       if (index > -1) {
@@ -42,7 +42,7 @@ export class MainComponent implements OnInit {
   }
 
   updateBoard(newBoard: Object) {
-    this.boardService.update(this.currentBoard, newBoard).subscribe((res) => {
+    this.mainService.update(this.currentBoard, newBoard).subscribe((res) => {
       if (res) {
         const index = this.boards.indexOf(this.currentBoard);
         this.boards.splice(index, 1, res);
@@ -68,9 +68,6 @@ export class MainComponent implements OnInit {
     projectUpdate?.classList.remove('project-update-hidden');
 
     this.currentBoard = board;
-
-    const formTitle: any = projectUpdate?.querySelector('h2');
-    formTitle.innerText = board?.title;
 
     const titleInput: any = projectUpdate?.querySelector('#title');
     titleInput.placeholder = board?.title;
@@ -120,6 +117,12 @@ export class MainComponent implements OnInit {
   closeProjectDeleteWindow() {
     const projectDelete = document.querySelector('.project-delete');
     projectDelete?.classList.add('project-delete-hidden');
+
+    const deleteBtn = projectDelete?.querySelector('.delete-btn');
+    deleteBtn?.replaceWith(deleteBtn.cloneNode(true));
+
+    const cancelBtn = projectDelete?.querySelector('.cancel-btn');
+    cancelBtn?.replaceWith(cancelBtn.cloneNode(true));
   }
 
   hideProjectCreate($event: any) {

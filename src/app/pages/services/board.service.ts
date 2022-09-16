@@ -12,7 +12,44 @@ export class BoardService {
     return this.http.post(this._url + id + '/columns', title);
   }
 
+  createTask(boardId: string, columnId: string, task: object) {
+    return this.http.post(
+      this._url + boardId + '/columns/' + columnId + '/tasks',
+      task
+    );
+  }
+
+  updateTask(boardId: string, columnId: string, taskId: string, body: object) {
+    return this.http.put(
+      this._url + boardId + '/columns/' + columnId + '/tasks/' + taskId,
+      body
+    );
+  }
+
+  deleteColumn(boardId: string, columnId: string) {
+    return this.http.delete(this._url + boardId + '/columns/' + columnId);
+  }
+
+  deleteTask(boardId: string, columnId: string, taskId: string) {
+    return this.http.delete(
+      this._url + boardId + '/columns/' + columnId + '/tasks/' + taskId
+    );
+  }
+
+  updateColumnTitle(boardId: string, columnId: string, newColumn: object) {
+    return this.http.put(
+      this._url + boardId + '/columns/' + columnId,
+      newColumn
+    );
+  }
+
   getAllColumns(id: string) {
     return this.http.get(this._url + id + '/columns');
+  }
+
+  getSingleColumnTasks(boardId: string, columnId: string) {
+    return this.http.get(
+      this._url + boardId + '/columns/' + columnId + '/tasks'
+    );
   }
 }

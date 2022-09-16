@@ -10,31 +10,29 @@
     <div class="column-wrapper" *ngFor="let column of columns">
       <div class="column">
         <div class="column-title-container">
-          <button class="column-title">{{column.title}}</button>
-          <div class="column-title-edit hidden">
-            <input type="text">
+          <button class="column-title" (click)="showColumnTitleEdit(column)">{{column.title}}</button>
+          <div class="column-title-edit column-title-edit-hidden">
+            <input type="text" #titleInput maxlength="15">
             <div class="column-title-edit-btns">
-              <button>Cancel</button><button>Submit</button>
+              <button (click)="showColumnTitle(column)">Cancel</button><button
+                (click)="updateColumnTitle(column, titleInput.value)">Submit</button>
             </div>
           </div>
         </div>
 
         <div class="tasks">
-          <div class="task">
-            <h6>Task 1</h6>
-            <p>Lorem ipsum dolor sit</p>
-            <button><i class="fa-solid fa-xmark"></i></button>
+          <div class="task" *ngFor="let task of allTasks[columns.indexOf(column)]"
+            (click)="showTaskEditWindow($event, column, task )">
+            <h6>{{task.title}}</h6>
+            <p>{{task.description}}</p>
+            <button (click)="showTaskDelete(column, task)"><i class="fa-solid fa-xmark"></i></button>
           </div>
-          <!-- <div class="task">
-            <h6>Task 1</h6>
-            <p>Lorem ipsum dolor sit</p>
-            <button><i class="fa-solid fa-xmark"></i></button>
-          </div> -->
         </div>
 
         <div class="column-bottom">
-          <button class="add-task-btn"><i class="fa-solid fa-plus"></i></button>
-          <button class="delete-column-btn"><i class="fa-solid fa-trash-can"></i></button>
+          <button class="add-task-btn" (click)="showTaskCreateWindow(column)"><i class="fa-solid fa-plus"></i></button>
+          <button class="delete-column-btn" (click)="showColumnDelete(column)"><i
+              class="fa-solid fa-trash-can"></i></button>
         </div>
       </div>
     </div>
@@ -45,15 +43,68 @@
   </div>
 
   <div class="column-create column-create-hidden" (click)="hideColumnCreate($event)">
-    <form action="" #createForm="ngForm" (ngSubmit)="createColumn(createForm.value)">
-      <h3>New column</h3>
+    <form action="" #addColumnForm="ngForm" (ngSubmit)="createColumn(addColumnForm.value)">
+      <h3>Add column</h3>
 
       <div class="input-container">
         <label for="title" class="form-label">Title</label>
         <input required maxlength="14" type="text" id="title" name="title" ngModel>
       </div>
 
-      <button type="submit" class="submit-btn" [disabled]="!createForm.valid">Save</button>
+      <button type="submit" class="submit-btn" [disabled]="!addColumnForm.valid">Save</button>
+
+      <div class="exit-btn">
+        <i class="fa-regular fa-circle-xmark"></i>
+      </div>
+    </form>
+
+  </div>
+
+  <div class="column-delete column-delete-hidden" (click)="hideColumnDelete($event)">
+    <app-confirm-delete></app-confirm-delete>
+  </div>
+
+  <div class="task-create task-create-hidden" (click)="hideTaskCreate($event)">
+    <form action="" #addTaskForm="ngForm" (ngSubmit)="createTask(addTaskForm.value)">
+      <h2>Add task</h2>
+
+      <div class="input-container">
+        <label for="title" class="form-label">Title</label>
+        <input required maxlength="14" type="text" id="title" name="title" ngModel>
+      </div>
+
+      <div class="input-container">
+        <label for="description" class="form-label">Description</label>
+        <textarea required maxlength="50" type="text" id="description" name="description" ngModel></textarea>
+      </div>
+
+      <button type="submit" class="submit-btn" [disabled]="!addTaskForm.valid">Save</button>
+
+      <div class="exit-btn">
+        <i class="fa-regular fa-circle-xmark"></i>
+      </div>
+    </form>
+  </div>
+
+  <div class="task-delete task-delete-hidden" (click)="hideTaskDelete($event)">
+    <app-confirm-delete></app-confirm-delete>
+  </div>
+
+  <div class="task-update task-update-hidden" (click)="hideTaskUpdate($event)">
+    <form action="" #updateTaskForm="ngForm" (ngSubmit)="updateTask(updateTaskForm.value)">
+      <h2>Edit task</h2>
+
+      <div class="input-container">
+        <label for="title" class="form-label">Title</label>
+        <input required maxlength="14" type="text" id="title" name="title" ngModel>
+      </div>
+
+      <div class="input-container">
+        <label for="description" class="form-label">Description</label>
+        <textarea required maxlength="50" type="text" id="description" name="description" ngModel></textarea>
+      </div>
+
+      <button type="submit" class="submit-btn" [disabled]="!updateTaskForm.valid">Save</button>
 
       <div class="exit-btn">
         <i class="fa-regular fa-circle-xmark"></i>

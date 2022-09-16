@@ -37,7 +37,7 @@
 
   <div class="project-create project-create-hidden" (click)="hideProjectCreate($event)">
     <form action="" #createForm="ngForm" (ngSubmit)="createBoard(createForm.value)">
-      <h2>New board</h2>
+      <h2>Add board</h2>
 
       <div class="input-container">
         <label for="title" class="form-label">Title</label>
@@ -59,7 +59,7 @@
 
   <div class="project-update project-update-hidden" (click)="hideProjectUpdate($event)">
     <form action="" #updateForm="ngForm" (ngSubmit)="updateBoard(updateForm.value)">
-      <h2>Project</h2>
+      <h2>Edit board</h2>
 
       <div class="input-container">
         <label for="title" class="form-label">Name</label>

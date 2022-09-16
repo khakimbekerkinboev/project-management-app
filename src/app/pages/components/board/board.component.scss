@@ -6,10 +6,6 @@ body {
   height: calc(100vh - 150px);
 }
 
-.hidden {
-  display: none;
-}
-
 .board-top {
   padding: 0.75rem 0;
   position: relative;
@@ -116,6 +112,14 @@ body {
   font-size: 1.2rem;
 }
 
+.column-title-hidden {
+  display: none;
+}
+
+.column-title-edit-hidden {
+  display: none;
+}
+
 .column-title-edit input {
   width: 100%;
   text-align: center;
@@ -123,16 +127,15 @@ body {
   font-weight: 500;
   border: none;
   outline: none;
-  background-color: transparent;
   margin-bottom: 0.5rem;
+  background-color: #e8e8e8;
 }
 
 .column-title-edit-btns {
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
-  column-gap: 3rem;
+  justify-content: space-around;
 }
 
 .column-title-edit-btns button {
@@ -171,7 +174,7 @@ body {
 .task {
   background-color: #d3d3d3;
   padding: 0.25rem;
-  cursor: grab;
+  cursor: pointer;
   position: relative;
   border-radius: 0.25rem;
 }
@@ -247,7 +250,7 @@ body {
   background-color: #ff0000;
 }
 
-///////////////////// Board Create ////////////////////
+///////////////////// Column Create ////////////////////
 .column-create {
   position: fixed;
   top: 0;
@@ -320,5 +323,223 @@ body {
 }
 
 .column-create .exit-btn i {
+  font-size: 2rem;
+}
+
+////////////////////////// Column Delete //////////////////////
+
+.column-delete {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.column-delete-hidden {
+  display: none;
+}
+
+///////////////////// Task Create ////////////////////
+
+.task-create {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.task-create-hidden {
+  display: none;
+}
+
+.task-create form {
+  background-color: white;
+  width: 22.5rem;
+  border: 1px solid #c0c0c0;
+  padding: 2rem 1.5rem;
+  border-radius: 1rem;
+  position: relative;
+}
+
+.task-create form h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.task-create .input-container {
+  margin-bottom: 1rem;
+}
+
+.task-create .input-container:nth-child(3) {
+  margin-bottom: 2rem;
+}
+
+.task-create .input-container label {
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.task-create .input-container input {
+  width: 100%;
+  padding: 0.3rem;
+  outline: none;
+  border: 1px solid #c0c0c0;
+  border-radius: 0.3rem;
+}
+
+.task-create .input-container textarea {
+  width: 100%;
+  padding: 0.3rem;
+  display: block;
+  outline: none;
+  border: 1px solid #c0c0c0;
+  border-radius: 0.3rem;
+}
+
+.task-create .submit-btn {
+  display: block;
+  margin: 0 auto;
+  border: none;
+  color: white;
+  padding: 0.3rem 2rem;
+  border-radius: 0.3rem;
+  background-color: #0a58ca;
+}
+
+.task-create .submit-btn:disabled {
+  opacity: 0.5;
+}
+
+.task-create .exit-btn {
+  color: white;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(2rem, -2rem);
+  cursor: pointer;
+}
+
+.task-create .exit-btn i {
+  font-size: 2rem;
+}
+
+////////////////////////// Task Delete //////////////////////
+
+.task-delete {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.task-delete-hidden {
+  display: none;
+}
+
+///////////////////// Task Update ////////////////////
+
+.task-update {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.task-update-hidden {
+  display: none;
+}
+
+.task-update form {
+  background-color: white;
+  width: 22.5rem;
+  border: 1px solid #c0c0c0;
+  padding: 2rem 1.5rem;
+  border-radius: 1rem;
+  position: relative;
+}
+
+.task-update form h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.task-update .input-container {
+  margin-bottom: 1rem;
+}
+
+.task-create .input-container:nth-child(3) {
+  margin-bottom: 2rem;
+}
+
+.task-update .input-container label {
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.task-update .input-container input {
+  width: 100%;
+  padding: 0.3rem;
+  outline: none;
+  border: 1px solid #c0c0c0;
+  border-radius: 0.3rem;
+}
+
+.task-update .input-container textarea {
+  width: 100%;
+  padding: 0.3rem;
+  display: block;
+  outline: none;
+  border: 1px solid #c0c0c0;
+  border-radius: 0.3rem;
+}
+
+.task-update .submit-btn {
+  display: block;
+  margin: 0 auto;
+  border: none;
+  color: white;
+  padding: 0.3rem 2rem;
+  border-radius: 0.3rem;
+  background-color: #0a58ca;
+}
+
+.task-update .submit-btn:disabled {
+  opacity: 0.5;
+}
+
+.task-update .exit-btn {
+  color: white;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(2rem, -2rem);
+  cursor: pointer;
+}
+
+.task-update .exit-btn i {
   font-size: 2rem;
 }

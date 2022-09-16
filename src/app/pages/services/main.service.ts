@@ -1,12 +1,10 @@
-import { map, catchError } from 'rxjs/operators';
-import { of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
 })
-export class BoardsService {
+export class MainService {
   private _url = 'https://proj-manag-sys.herokuapp.com/boards';
   constructor(private http: HttpClient) {}
 

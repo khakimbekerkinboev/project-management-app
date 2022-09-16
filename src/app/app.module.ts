@@ -9,7 +9,7 @@ import { AppComponent } from './app.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthService } from './auth/services/auth.service';
 import { WhenLoggedOut } from './auth/services/when-logged-out.service';
-import { BoardsService } from './pages/services/boards.service';
+import { MainService } from './pages/services/main.service';
 import { TokenInterceptorService } from './auth/interceptors/token-interceptor.service';
 import { UserService } from './auth/services/user.service';
 
@@ -27,7 +27,7 @@ import { UserService } from './auth/services/user.service';
     AuthService,
     WhenLoggedIn,
     WhenLoggedOut,
-    BoardsService,
+    MainService,
     UserService,
     {
       provide: HTTP_INTERCEPTORS,
