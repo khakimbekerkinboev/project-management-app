@@ -26,6 +26,18 @@ export class BoardService {
     );
   }
 
+  updateColumnTasks(
+    boardId: string,
+    columnId: string,
+    taskId: string,
+    requestBody: object
+  ) {
+    return this.http.put(
+      this._url + boardId + '/columns/' + columnId + '/tasks/' + taskId,
+      requestBody
+    );
+  }
+
   deleteColumn(boardId: string, columnId: string) {
     return this.http.delete(this._url + boardId + '/columns/' + columnId);
   }
@@ -40,6 +52,13 @@ export class BoardService {
     return this.http.put(
       this._url + boardId + '/columns/' + columnId,
       newColumn
+    );
+  }
+
+  updateColumnOrder(boardId: string, columnId: string, requestBody: object) {
+    return this.http.put(
+      this._url + boardId + '/columns/' + columnId,
+      requestBody
     );
   }
 

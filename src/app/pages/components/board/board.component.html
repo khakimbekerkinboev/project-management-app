@@ -6,9 +6,10 @@
     <h5 class="board-title"></h5>
   </div>
 
-  <div class="columns">
+  <div class="columns" cdkDropList cdkDropListOrientation="horizontal" (cdkDropListDropped)="dropColumn($event)"
+    cdkDropListGroup>
     <div class="column-wrapper" *ngFor="let column of columns">
-      <div class="column">
+      <div class="column" cdkDrag>
         <div class="column-title-container">
           <button class="column-title" (click)="showColumnTitleEdit(column)">{{column.title}}</button>
           <div class="column-title-edit column-title-edit-hidden">
@@ -20,9 +21,11 @@
           </div>
         </div>
 
-        <div class="tasks">
+        <div class="tasks" cdkDropList [cdkDropListData]="allTasks[columns.indexOf(column)]"
+          (cdkDropListDropped)="dropTask($event, column)">
           <div class="task" *ngFor="let task of allTasks[columns.indexOf(column)]"
-            (click)="showTaskEditWindow($event, column, task )">
+            (click)="showTaskEditWindow($event, column, task )" cdkDrag
+            (cdkDragStarted)="setTaskDraggedItem(task, column)">
             <h6>{{task.title}}</h6>
             <p>{{task.description}}</p>
             <button (click)="showTaskDelete(column, task)"><i class="fa-solid fa-xmark"></i></button>

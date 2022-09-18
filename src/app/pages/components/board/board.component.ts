@@ -3,6 +3,11 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BoardService } from '../../services/board.service';
 import { MainService } from '../../services/main.service';
+import {
+  CdkDragDrop,
+  moveItemInArray,
+  transferArrayItem,
+} from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-board',
@@ -15,15 +20,105 @@ export class BoardComponent implements OnInit {
   allTasks: any = [];
   currentColumn: any = {};
   currentTask: any = {};
+  draggedTask: any = {};
+  draggedColumn: any = [];
 
   constructor(
     private route: ActivatedRoute,
     private mainService: MainService,
     private boardService: BoardService
   ) {}
+  ///////////////////////////// Drag-n-Drop Events //////////////////////
+  dropColumn(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.columns, event.previousIndex, event.currentIndex);
+    moveItemInArray(this.allTasks, event.previousIndex, event.currentIndex);
+    const droppedColumn = this.columns[event.currentIndex];
+    const newOrderOfDroppedColumn = event.currentIndex + 1;
+    this.updateColumnOrder(droppedColumn, newOrderOfDroppedColumn);
+  }
 
-  ///////////////////////////// Change Items ////////////////////////
+  updateColumnOrder(droppedColumn: any, newOrderOfDroppedColumn: number) {
+    const requestBody = {
+      title: droppedColumn.title,
+      order: newOrderOfDroppedColumn,
+    };
+    this.boardService
+      .updateColumnOrder(this.boardId, droppedColumn.id, requestBody)
+      .subscribe(() => {});
+  }
 
+  dropTask(event: CdkDragDrop<string[]>, column: any) {
+    if (event.previousContainer === event.container) {
+      moveItemInArray(
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex
+      );
+    } else {
+      transferArrayItem(
+        event.previousContainer.data,
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex
+      );
+    }
+
+    const previousColumn = this.draggedColumn;
+    const previousColumnTasks = this.reorderColumnTasks(
+      previousColumn,
+      event.previousContainer.data
+    );
+
+    const currentColumn = column;
+    const currentColumnTasks = this.reorderColumnTasks(
+      currentColumn,
+      event.container.data
+    );
+
+    this.updateColumnTasks(previousColumn, previousColumnTasks);
+    this.updateColumnTasks(previousColumn, currentColumnTasks);
+  }
+
+  setTaskDraggedItem(task: any, column: any) {
+    this.draggedColumn = column;
+    this.draggedTask = task;
+  }
+
+  reorderColumnTasks(column: any, tasks: any) {
+    let result = [...tasks];
+
+    result.forEach((obj, index) => {
+      obj.order = index + 1;
+      obj.columnId = column.id;
+    });
+
+    return result;
+  }
+
+  updateColumnTasks(column: any, columnTasks: any) {
+    columnTasks.forEach((task: any) => {
+      const requestBody = {
+        title: task.title,
+        order: task.order,
+        description: task.description,
+        userId: task.userId,
+        boardId: task.boardId,
+        columnId: task.columnId,
+      };
+
+      if (task === this.draggedTask) {
+        this.boardService
+          .updateColumnTasks(this.boardId, column.id, task.id, requestBody)
+          .subscribe(() => {});
+      } else {
+        this.boardService
+          .updateColumnTasks(this.boardId, task.columnId, task.id, requestBody)
+          .subscribe(() => {});
+      }
+    });
+  }
+
+  //////////// Create, Get, Update, Delete Columns & Tasks //////////////
   setBoardTitle() {
     const boardTitle: any = document.querySelector('.board-title');
     this.mainService.getSpecificBoard(this.boardId).subscribe((res: any) => {
@@ -32,8 +127,12 @@ export class BoardComponent implements OnInit {
   }
 
   getAllColumns() {
-    this.boardService.getAllColumns(this.boardId).subscribe((res) => {
+    this.boardService.getAllColumns(this.boardId).subscribe((res: any) => {
       if (res) {
+        res.sort((a: any, b: any) => {
+          return a.order - b.order;
+        });
+
         this.columns = res;
         this.getAllTasks();
       }
@@ -41,6 +140,7 @@ export class BoardComponent implements OnInit {
   }
 
   getAllTasks() {
+    this.allTasks = [];
     for (let column of this.columns) {
       this.allTasks.push([]);
     }

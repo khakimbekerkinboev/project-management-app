@@ -66,8 +66,8 @@ body {
   margin-right: 1rem;
   border-radius: 0.5rem;
   vertical-align: top;
-  background-color: #e0e0e0;
   min-height: 10rem;
+  background-color: transparent;
 }
 
 .create-column-btn {
@@ -542,4 +542,17 @@ body {
 
 .task-update .exit-btn i {
   font-size: 2rem;
+}
+
+//////////////// Drag-n-Drop ///////////////////////
+.cdk-drag-placeholder {
+  opacity: 0;
+}
+
+.cdk-drag-animating {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.example-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }

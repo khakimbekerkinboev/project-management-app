@@ -7,10 +7,22 @@ import { AppRoutingModule } from '../app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { CoreModule } from '../core/core.module';
 import { BoardComponent } from './components/board/board.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
-  declarations: [HomepageComponent, NotFoundComponent, MainComponent, BoardComponent],
+  declarations: [
+    HomepageComponent,
+    NotFoundComponent,
+    MainComponent,
+    BoardComponent,
+  ],
   exports: [HomepageComponent, NotFoundComponent],
-  imports: [CommonModule, FormsModule, AppRoutingModule, CoreModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    AppRoutingModule,
+    CoreModule,
+    DragDropModule,
+  ],
 })
 export class PagesModule {}
