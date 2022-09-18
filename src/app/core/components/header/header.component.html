@@ -4,24 +4,25 @@
     <div class="header-left">
       <a routerLink="" class="logo">
         <i class="fa-solid fa-bars-progress"></i>
-        <span>PMS</span>
+        <span>{{'header.logo' | translate}}</span>
       </a>
       <ul *ngIf="authService.isLoggedIn()" class="nav-items">
         <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a
-            routerLink="/">Home</a></li>
+            routerLink="/">{{'header.nav.home' | translate}}</a></li>
         <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a
-            routerLink="/main">Boards</a></li>
+            routerLink="/main">{{'header.nav.boards' | translate}}</a></li>
       </ul>
     </div>
 
     <div class="header-right">
-      <select name="lang" id="lang" class="lang-selector">
-        <option value="en">En</option>
-        <option value="uz">Uz</option>
+      <select name="lang" id="lang" class="lang-selector" (change)="changeLang($event)">
+        <option value="en" [selected]="lang == 'en'">{{'header.lang.en' | translate}}</option>
+        <option value="uz" [selected]="lang == 'uz'">{{'header.lang.uz' | translate}}</option>
       </select>
 
-      <a *ngIf="!authService.isLoggedIn()" routerLink="/login" class="login-btn">Log in</a>
-      <a *ngIf="!authService.isLoggedIn()" routerLink="/sign-up" class="signup-btn">Sign up</a>
+      <a *ngIf="!authService.isLoggedIn()" routerLink="/login" class="login-btn">{{'header.auth.login' | translate}}</a>
+      <a *ngIf="!authService.isLoggedIn()" routerLink="/sign-up" class="signup-btn">{{'header.auth.signup' |
+        translate}}</a>
 
 
       <div class="user-profile" *ngIf="authService.isLoggedIn()">
@@ -33,11 +34,11 @@
 
       <div class="profile-container profile-hidden">
         <div>
-          <a routerLink="/edit-profile" (click)="closeProfile()">Edit profile</a>
+          <a routerLink="/edit-profile" (click)="closeProfile()">{{'header.auth.editprofile' | translate}}</a>
         </div>
         <div>
-          <a routerLink="/" (click)="authService.logout()" (click)="closeProfile()">Log
-            out</a>
+          <a routerLink="/" (click)="authService.logout()" (click)="closeProfile()">{{'header.auth.logout' |
+            translate}}</a>
         </div>
 
       </div>

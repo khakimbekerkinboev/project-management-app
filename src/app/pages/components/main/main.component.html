@@ -1,6 +1,6 @@
 <div class="main-page">
   <div class="main-top">
-    <h2 class="main-title">Boards</h2>
+    <h2 class="main-title">{{'main.main-title' | translate}}</h2>
     <div class="search-box">
       <label for="search"><i class="fa-solid fa-magnifying-glass"></i></label>
       <input type="text" id="search" placeholder="Search">
@@ -19,7 +19,7 @@
 
       <div class="project-btns">
         <div>
-          <button class="project-tasks" (click)="navigateToBoard(board)">Open</button>
+          <button class="project-tasks" (click)="navigateToBoard(board)">{{'main.open-board-btn' | translate}}</button>
         </div>
 
         <div>
@@ -32,24 +32,24 @@
 
     </div>
 
-    <button class="project-create-btn" (click)="showProjectCreate()">Add board</button>
+    <button class="project-create-btn" (click)="showProjectCreate()">{{'main.add-board-btn' | translate}}</button>
   </div>
 
   <div class="project-create project-create-hidden" (click)="hideProjectCreate($event)">
     <form action="" #createForm="ngForm" (ngSubmit)="createBoard(createForm.value)">
-      <h2>Add board</h2>
+      <h2>{{'main.create.title' | translate}}</h2>
 
       <div class="input-container">
-        <label for="title" class="form-label">Title</label>
+        <label for="title" class="form-label">{{'main.create.input-1' | translate}}</label>
         <input required maxlength="14" type="text" id="title" name="title" ngModel>
       </div>
 
       <div class="input-container">
-        <label for="description" class="form-label">Description</label>
+        <label for="description" class="form-label">{{'main.create.input-2' | translate}}</label>
         <textarea required maxlength="50" type="text" id="description" name="description" ngModel></textarea>
       </div>
 
-      <button type="submit" class="submit-btn" [disabled]="!createForm.valid">Save</button>
+      <button type="submit" class="submit-btn" [disabled]="!createForm.valid">{{'main.create.btn' | translate}}</button>
 
       <div class="exit-btn">
         <i class="fa-regular fa-circle-xmark"></i>
@@ -59,19 +59,19 @@
 
   <div class="project-update project-update-hidden" (click)="hideProjectUpdate($event)">
     <form action="" #updateForm="ngForm" (ngSubmit)="updateBoard(updateForm.value)">
-      <h2>Edit board</h2>
+      <h2>{{'main.update.title' | translate}}</h2>
 
       <div class="input-container">
-        <label for="title" class="form-label">Name</label>
+        <label for="title" class="form-label">{{'main.update.input-1' | translate}}</label>
         <input required maxlength="15" type="text" id="title" name="title" ngModel>
       </div>
 
       <div class="input-container">
-        <label for="description" class="form-label">Description</label>
+        <label for="description" class="form-label">{{'main.update.input-2' | translate}}</label>
         <textarea required maxlength="50" type="text" id="description" name="description" ngModel></textarea>
       </div>
 
-      <button type="submit" class="submit-btn" [disabled]="!updateForm.valid">Save</button>
+      <button type="submit" class="submit-btn" [disabled]="!updateForm.valid">{{'main.update.btn' | translate}}</button>
 
       <div class=" exit-btn">
         <i class="fa-regular fa-circle-xmark"></i>

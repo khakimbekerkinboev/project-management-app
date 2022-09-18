@@ -1,7 +1,7 @@
 <div class="board-page">
   <div class="board-top">
     <a routerLink="/main" class="back-btn"><i class="fa-solid fa-chevron-left"></i>
-      <p>Boards</p>
+      <p>{{'board.exit-btn' | translate}}</p>
     </a>
     <h5 class="board-title"></h5>
   </div>
@@ -15,8 +15,10 @@
           <div class="column-title-edit column-title-edit-hidden">
             <input type="text" #titleInput maxlength="15">
             <div class="column-title-edit-btns">
-              <button (click)="showColumnTitle(column)">Cancel</button><button
-                (click)="updateColumnTitle(column, titleInput.value)">Submit</button>
+              <button (click)="showColumnTitle(column)">{{'board.column-title-edit-btns.cancel' |
+                translate}}</button><button
+                (click)="updateColumnTitle(column, titleInput.value)">{{'board.column-title-edit-btns.submit' |
+                translate}}</button>
             </div>
           </div>
         </div>
@@ -41,20 +43,21 @@
     </div>
 
     <button class="create-column-btn" (click)="toggleColumnCreateWindow()">
-      Add column
+      {{'board.add-column-btn' | translate}}
     </button>
   </div>
 
   <div class="column-create column-create-hidden" (click)="hideColumnCreate($event)">
     <form action="" #addColumnForm="ngForm" (ngSubmit)="createColumn(addColumnForm.value)">
-      <h3>Add column</h3>
+      <h3>{{'board.column-create.title' | translate}}</h3>
 
       <div class="input-container">
-        <label for="title" class="form-label">Title</label>
+        <label for="title" class="form-label">{{'board.column-create.input' | translate}}</label>
         <input required maxlength="14" type="text" id="title" name="title" ngModel>
       </div>
 
-      <button type="submit" class="submit-btn" [disabled]="!addColumnForm.valid">Save</button>
+      <button type="submit" class="submit-btn" [disabled]="!addColumnForm.valid">{{'board.column-create.btn' |
+        translate}}</button>
 
       <div class="exit-btn">
         <i class="fa-regular fa-circle-xmark"></i>
@@ -69,19 +72,20 @@
 
   <div class="task-create task-create-hidden" (click)="hideTaskCreate($event)">
     <form action="" #addTaskForm="ngForm" (ngSubmit)="createTask(addTaskForm.value)">
-      <h2>Add task</h2>
+      <h2>{{'board.task-create.title' | translate}}</h2>
 
       <div class="input-container">
-        <label for="title" class="form-label">Title</label>
+        <label for="title" class="form-label">{{'board.task-create.input-1' | translate}}</label>
         <input required maxlength="14" type="text" id="title" name="title" ngModel>
       </div>
 
       <div class="input-container">
-        <label for="description" class="form-label">Description</label>
+        <label for="description" class="form-label">{{'board.task-create.input-2' | translate}}</label>
         <textarea required maxlength="50" type="text" id="description" name="description" ngModel></textarea>
       </div>
 
-      <button type="submit" class="submit-btn" [disabled]="!addTaskForm.valid">Save</button>
+      <button type="submit" class="submit-btn" [disabled]="!addTaskForm.valid">{{'board.task-create.btn' |
+        translate}}</button>
 
       <div class="exit-btn">
         <i class="fa-regular fa-circle-xmark"></i>
@@ -95,19 +99,20 @@
 
   <div class="task-update task-update-hidden" (click)="hideTaskUpdate($event)">
     <form action="" #updateTaskForm="ngForm" (ngSubmit)="updateTask(updateTaskForm.value)">
-      <h2>Edit task</h2>
+      <h2>{{'board.task-update.title' | translate}}</h2>
 
       <div class="input-container">
-        <label for="title" class="form-label">Title</label>
+        <label for="title" class="form-label">{{'board.task-update.input-1' | translate}}</label>
         <input required maxlength="14" type="text" id="title" name="title" ngModel>
       </div>
 
       <div class="input-container">
-        <label for="description" class="form-label">Description</label>
+        <label for="description" class="form-label">{{'board.task-update.input-2' | translate}}</label>
         <textarea required maxlength="50" type="text" id="description" name="description" ngModel></textarea>
       </div>
 
-      <button type="submit" class="submit-btn" [disabled]="!updateTaskForm.valid">Save</button>
+      <button type="submit" class="submit-btn" [disabled]="!updateTaskForm.valid">{{'board.task-update.btn' |
+        translate}}</button>
 
       <div class="exit-btn">
         <i class="fa-regular fa-circle-xmark"></i>

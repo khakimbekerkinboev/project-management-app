@@ -1,3 +1,5 @@
+import { TranslateModule } from '@ngx-translate/core';
+import { HttpClient } from '@angular/common/http';
 import { AppRoutingModule } from './../app-routing.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -8,6 +10,6 @@ import { ConfirmDeleteComponent } from './components/confirm-delete/confirm-dele
 @NgModule({
   declarations: [HeaderComponent, FooterComponent, ConfirmDeleteComponent],
   exports: [HeaderComponent, FooterComponent, ConfirmDeleteComponent],
-  imports: [CommonModule, AppRoutingModule],
+  imports: [CommonModule, AppRoutingModule, TranslateModule],
 })
 export class CoreModule {}

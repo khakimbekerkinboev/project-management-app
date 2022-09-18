@@ -6,12 +6,22 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpClientModule,
+  HTTP_INTERCEPTORS,
+} from '@angular/common/http';
 import { AuthService } from './auth/services/auth.service';
 import { WhenLoggedOut } from './auth/services/when-logged-out.service';
 import { MainService } from './pages/services/main.service';
 import { TokenInterceptorService } from './auth/interceptors/token-interceptor.service';
 import { UserService } from './auth/services/user.service';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,6 +32,14 @@ import { UserService } from './auth/services/user.service';
     PagesModule,
     AuthModule,
     HttpClientModule,
+    TranslateModule.forRoot({
+      defaultLanguage: 'en',
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient],
+      },
+    }),
   ],
   providers: [
     AuthService,
@@ -34,6 +52,7 @@ import { UserService } from './auth/services/user.service';
       useClass: TokenInterceptorService,
       multi: true,
     },
+    HttpClient,
   ],
   bootstrap: [AppComponent],
 })

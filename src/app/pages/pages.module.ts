@@ -1,3 +1,4 @@
+import { TranslateModule } from '@ngx-translate/core';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HomepageComponent } from './components/homepage/homepage.component';
@@ -23,6 +24,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     AppRoutingModule,
     CoreModule,
     DragDropModule,
+    TranslateModule,
   ],
 })
 export class PagesModule {}

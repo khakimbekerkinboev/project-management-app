@@ -1,3 +1,4 @@
+import { TranslateModule } from '@ngx-translate/core';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoginComponent } from './components/login/login.component';
@@ -10,6 +11,12 @@ import { CoreModule } from '../core/core.module';
 @NgModule({
   declarations: [LoginComponent, SignUpComponent, EditProfileComponent],
   exports: [LoginComponent, SignUpComponent],
-  imports: [CommonModule, FormsModule, AppRoutingModule, CoreModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    AppRoutingModule,
+    CoreModule,
+    TranslateModule,
+  ],
 })
 export class AuthModule {}

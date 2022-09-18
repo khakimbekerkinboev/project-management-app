@@ -1,0 +1,120 @@
+{
+  "header": {
+    "logo": "PMS",
+    "nav": {
+      "home": "Home",
+      "boards": "Boards"
+    },
+    "lang": {
+      "en": "En",
+      "uz": "Uz"
+    },
+    "auth": {
+      "login": "Log in",
+      "signup": "Sign up",
+      "editprofile": "Edit profile",
+      "logout": "Log out"
+    }
+  },
+  "footer": {
+    "createdby": "Created by",
+    "in": "in 2022."
+  },
+  "confirm-delete": {
+    "title": "Are you sure you want to delete this item?",
+    "cancel": "Cancel",
+    "delete": "Delete"
+  },
+  "homepage": {
+    "hero": {
+      "hero-title": "Project Management System",
+      "hero-text": "Project Management System (or PMS) is an application that helps an individual in a team or group of developers to organize, manage, and track their projects.",
+      "start": "Get started"
+    },
+    "info": {
+      "title-1": "Planning",
+      "title-2": "Collaboration",
+      "title-3": "Efficiency",
+      "text-1": "The platform helps to create a consistent management plan and prioritize tasks for the project’s success. Also, the previous records of the current project can be accessed.",
+      "text-2": "A huge advantage of the project management system is that it makes an effective project team collaboration extremely simple. It keeps all the communication in a unified place.",
+      "text-3": "The app optimizes decision-making process and improves productivity at work. It keeps all of the important details in a single place and helps to make decisions within the shortest time."
+    },
+    "why": {
+      "title": "Why PMS?",
+      "text": "As a manager, you need to know what work needs to be done and when, which team member is working on what, and more. Project planning is critical for your team’s success. Doing it manually or using spreadsheets and over emails is definitely not an efficient way of doing it and brings its own set of challenges. However, when you use a project tracking software, all communication is in one centralized place, and it’s easy to assign tasks and define priorities. It becomes easy to keep track of your team’s work and ensures that projects are progressing as planned."
+    },
+    "introduce": {
+      "author": {
+        "title": "Author",
+        "name": "Hakimbek",
+        "text": "Hi, I'm a student of the JS / FRONT-END (EN) Course in RS School. This webpage is developed to complete the 'Project Management System' assignment in Stage 3."
+      },
+      "course": {
+        "title": "Course",
+        "card-title": "Angular (EN)",
+        "text": "Angular (EN) is a course offered by RS School. You can find more information",
+        "link": "here",
+        "enroll-btn": "Enroll"
+      }
+    }
+  },
+  "main": {
+    "main-title": "Boards",
+    "open-board-btn": "Open",
+    "add-board-btn": "Add board",
+    "create": {
+      "title": "Add board",
+      "input-1": "Title",
+      "input-2": "Description",
+      "btn": "Save"
+    },
+    "update": {
+      "title": "Edit board",
+      "input-1": "Title",
+      "input-2": "Description",
+      "btn": "Save"
+    }
+  },
+  "not-found": {
+    "title": "Not Found",
+    "text": "The page requested is not available!"
+  },
+  "board": {
+    "exit-btn": "Boards",
+    "column-title-edit-btns": {
+      "cancel": "Cancel",
+      "submit": "Submit"
+    },
+    "add-column-btn": "Add column",
+    "column-create": {
+      "title": "Add column",
+      "input": "Title",
+      "btn": "Save"
+    },
+    "task-create": {
+      "title": "Add task",
+      "input-1": "Title",
+      "input-2": "Description",
+      "btn": "Save"
+    },
+    "task-update": {
+      "title": "Edit task",
+      "input-1": "Title",
+      "input-2": "Description",
+      "btn": "Save"
+    }
+  },
+  "login": {
+    "title": "Log in",
+    "invalid": "Invalid login and/or password.",
+    "login": "Login",
+    "login-req": "Login is required.",
+    "login-min": "Login should be minimum 3 characters.",
+    "password": "Password",
+    "password-req": "Password is required.",
+    "password-min": "Password should be minimum 3 characters.",
+    "login-btn": "Login",
+    "account": "Don't have an account?",
+    "signup-link": "Sign up"
+  }
+}

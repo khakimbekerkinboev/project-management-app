@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -13,7 +14,7 @@ export class AuthService {
 
   helper = new JwtHelperService();
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   login(user: object) {
     return this.http.post(this._loginUrl, user).pipe(
@@ -70,6 +71,7 @@ export class AuthService {
 
   logout() {
     localStorage.removeItem('token');
+    this.router.navigate(['/']);
   }
 
   getToken() {

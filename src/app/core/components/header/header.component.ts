@@ -1,3 +1,4 @@
+import { TranslateService } from '@ngx-translate/core';
 import { UserService } from './../../../auth/services/user.service';
 import { AuthService } from './../../../auth/services/auth.service';
 import { Component, OnInit } from '@angular/core';
@@ -8,11 +9,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
+  lang: any;
+
   constructor(
     public authService: AuthService,
-    private userService: UserService
+    private userService: UserService,
+    private translate: TranslateService
   ) {
     this.userService.setCurrentUserToProfile();
+  }
+
+  changeLang(event: any) {
+    const lang = event.target.value;
+    localStorage.setItem('lang', lang);
+    this.translate.use(lang);
   }
 
   toggleProfile() {
@@ -31,7 +41,9 @@ export class HeaderComponent implements OnInit {
     accountBtn?.classList.add('account-inactive');
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.lang = localStorage.getItem('lang') || 'en';
+  }
 }
 
 window.addEventListener('click', (e: any) => {

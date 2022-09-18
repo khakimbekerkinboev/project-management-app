@@ -1,0 +1,120 @@
+{
+  "header": {
+    "logo": "LBT",
+    "nav": {
+      "home": "Asosiy",
+      "boards": "Doskalar"
+    },
+    "lang": {
+      "en": "Ing",
+      "uz": "O'z"
+    },
+    "auth": {
+      "login": "Kirish",
+      "signup": "Ro'yhatdan o'tish",
+      "editprofile": "Profilni tahrirlash",
+      "logout": "Chiqish"
+    }
+  },
+  "footer": {
+    "createdby": "",
+    "in": "tomonidan 2022 yilda yaratilgan."
+  },
+  "confirm-delete": {
+    "title": "Haqiqatan ham bu elementni oʻchmoqchimisiz?",
+    "cancel": "Bekor qilish",
+    "delete": "O'chirish"
+  },
+  "homepage": {
+    "hero": {
+      "hero-title": "Loyiha Boshqaruv Tizimi",
+      "hero-text": "Loyihani Boshqarish Tizimi (yoki LBT) - bu jamoa yoki dasturchilar guruhidagi shaxsga o'z loyihalarini tashkil qilish, boshqarish va kuzatishda yordam beruvchi dastur.",
+      "start": "Boshlash"
+    },
+    "info": {
+      "title-1": "Rejalashtirish",
+      "title-2": "Hamkorlik",
+      "title-3": "Samaradorlik",
+      "text-1": "Platforma izchil boshqaruv rejasini yaratishga va loyiha muvaffaqiyati uchun vazifalarni ustuvorligini aniqlashga yordam beradi. Shuningdek, joriy loyihaning oldingi yozuvlariga kirish mumkin.",
+      "text-2": "Loyihani boshqarish tizimining katta afzalligi shundaki, u loyiha jamoasining samarali hamkorligini juda oddiy qiladi. U barcha aloqalarni yagona joyda saqlaydi.",
+      "text-3": "Ilova qaror qabul qilish jarayonini optimallashtiradi va ish samaradorligini oshiradi. U barcha muhim tafsilotlarni bir joyda saqlaydi va eng qisqa vaqt ichida qaror qabul qilishga yordam beradi."
+    },
+    "why": {
+      "title": "Nega LBT?",
+      "text": "Menejer sifatida siz qanday ishni va qachon bajarilishi kerakligini, qaysi jamoa a'zosi nima ustida ishlayotganini va boshqalarni bilishingiz kerak. Loyihani rejalashtirish sizning jamoangiz muvaffaqiyati uchun juda muhimdir. Buni qo'lda qilish yoki elektron jadvallar va elektron pochta orqali foydalanish, albatta, buni amalga oshirishning samarali usuli emas va o'ziga xos qiyinchiliklarni keltirib chiqaradi. Biroq, loyihani kuzatish dasturidan foydalanganda, barcha aloqalar bitta markazlashtirilgan joyda bo'ladi va vazifalarni belgilash va ustuvorliklarni aniqlash oson. Jamoangiz ishini kuzatib borish osonlashadi va loyihalar rejalashtirilganidek davom etishini ta'minlaydi."
+    },
+    "introduce": {
+      "author": {
+        "title": "Muallif",
+        "name": "Hakimbek",
+        "text": "Salom, men RS Schooldagi JS / FRONT-END (EN) kursining talabasiman. Ushbu veb-sahifa 3-bosqichda 'Loyihalarni Boshqarish Tizimi' topshirig'ini bajarish uchun ishlab chiqilgan."
+      },
+      "course": {
+        "title": "Kurs",
+        "card-title": "Angular (EN)",
+        "text": "Angular (EN) RS School tomonidan taklif qilinadigan kursdir. Qo'shimcha ma'lumotni quyidagi havoladan topishingiz mumkin",
+        "link": "bu yerda",
+        "enroll-btn": "Kirish"
+      }
+    }
+  },
+  "main": {
+    "main-title": "Doskalar",
+    "open-board-btn": "Ochish",
+    "add-board-btn": "Doska qo'shish",
+    "create": {
+      "title": "Doska qo'shish",
+      "input-1": "Sarlavha",
+      "input-2": "Tavsif",
+      "btn": "Saqlash"
+    },
+    "update": {
+      "title": "Doskani tahrirlash",
+      "input-1": "Sarlavha",
+      "input-2": "Tavsif",
+      "btn": "Saqlash"
+    }
+  },
+  "not-found": {
+    "title": "Topilmadi",
+    "text": "Siz izlayotgan sahifa mavjud emas!"
+  },
+  "board": {
+    "exit-btn": "Doskalar",
+    "column-title-edit-btns": {
+      "cancel": "Bekor qilish",
+      "submit": "Saqlash"
+    },
+    "add-column-btn": "Qator qo'shish",
+    "column-create": {
+      "title": "Qator qo'shish",
+      "input": "Sarlavha",
+      "btn": "Saqlash"
+    },
+    "task-create": {
+      "title": "Vazifa qo'shish",
+      "input-1": "Sarlavha",
+      "input-2": "Tavsif",
+      "btn": "Saqlash"
+    },
+    "task-update": {
+      "title": "Vazifani tahrirlash",
+      "input-1": "Sarlavha",
+      "input-2": "Tavsif",
+      "btn": "Saqlash"
+    }
+  },
+  "login": {
+    "title": "Kirish",
+    "invalid": "Noto'g'ri login va/yoki parol.",
+    "login": "Login",
+    "login-req": "Login majburiy.",
+    "login-min": "Login kamida 3 ta belgidan iborat bo'lishi kerak.",
+    "password": "Parol",
+    "password-req": "Parol majburiy.",
+    "password-min": "Parol kamida 3 ta belgidan iborat bo'lishi kerak.",
+    "login-btn": "Kirish",
+    "account": "Akkountingiz yo'qmi?",
+    "signup-link": "Ro'yhatdan o'tish"
+  }
+}

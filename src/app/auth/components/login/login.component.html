@@ -1,35 +1,35 @@
 <div class="login-page">
   <form #f="ngForm" (ngSubmit)="signIn(f.value)">
-    <h2 class="form-title">Log in</h2>
+    <h2 class="form-title">{{'login.title' | translate}}</h2>
 
     <div *ngIf="invalidLogin" class="alert alert-danger">
-      Invalid login and/or password.
+      {{'login.invalid' | translate}}
     </div>
 
     <!-- Login input -->
     <div class="input-container">
-      <label class="form-label" for="login">Login</label>
+      <label class="form-label" for="login">{{'login.login' | translate}}</label>
       <input required minlength="3" type="text" id="login" name="login" ngModel #login="ngModel" />
       <div class="alert alert-danger" *ngIf="login.touched && !(login.valid)">
-        <div *ngIf="login.errors?.['required']">Login is required.</div>
-        <div *ngIf="login.errors?.['minlength']">Login should be minimum 3 characters.</div>
+        <div *ngIf="login.errors?.['required']">{{'login.login-req' | translate}}</div>
+        <div *ngIf="login.errors?.['minlength']">{{'login.login-min' | translate}}</div>
       </div>
     </div>
 
     <!-- Password input -->
     <div class="input-container">
-      <label class="form-label" for="password">Password</label>
+      <label class="form-label" for="password">{{'login.password' | translate}}</label>
       <input required minlength="3" type="password" id="password" name="password" ngModel #password="ngModel" />
       <div class="alert alert-danger" *ngIf="password.touched && !(password.valid)">
-        <div *ngIf="password.errors?.['required']">Password is required.</div>
-        <div *ngIf="password.errors?.['minlength']">Password should be minimum 3 characters.</div>
+        <div *ngIf="password.errors?.['required']">{{'login.password-req' | translate}}</div>
+        <div *ngIf="password.errors?.['minlength']">{{'login.password-min' | translate}}</div>
       </div>
     </div>
 
-    <button type="submit" class="submit-btn" [disabled]="!f.valid">Login</button>
+    <button type="submit" class="submit-btn" [disabled]="!f.valid">{{'login.login-btn' | translate}}</button>
 
     <div class="form-bottom">
-      <p>Don't have an account? <a routerLink="/sign-up">Sign up</a></p>
+      <p>{{'login.account' | translate}} <a routerLink="/sign-up">{{'login.signup-link' | translate}}</a></p>
     </div>
   </form>
 </div>
