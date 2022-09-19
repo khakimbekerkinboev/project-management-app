@@ -1,46 +1,46 @@
 <div class="edit-profile-page">
   <form #f="ngForm" (ngSubmit)="updateUser(f.value)">
-    <h2 class="form-title">Edit profile</h2>
+    <h2 class="form-title">{{'edit-profile.title' | translate}}</h2>
 
     <div *ngIf="updateUserError" class="alert alert-danger">
-      An error occured, please try again later.
+      {{'edit-profile.error' | translate}}
     </div>
 
     <!-- Name input -->
     <div class="input-container">
-      <label class="form-label" for="name">Name</label>
+      <label class="form-label" for="name">{{'edit-profile.name' | translate}}</label>
       <input required minlength="3" type="text" id="name" name="name" ngModel #name="ngModel" />
       <div class="alert alert-danger" *ngIf="name.touched && !(name.valid)">
-        <div *ngIf="name.errors?.['required']">Name is required.</div>
-        <div *ngIf="name.errors?.['minlength']">Name should be minimum 3 characters.</div>
+        <div *ngIf="name.errors?.['required']">{{'edit-profile.name-req' | translate}}</div>
+        <div *ngIf="name.errors?.['minlength']">{{'edit-profile.name-min' | translate}}</div>
       </div>
     </div>
 
     <!-- Login input -->
     <div class="input-container">
-      <label class="form-label" for="login">Login</label>
+      <label class="form-label" for="login">{{'edit-profile.login' | translate}}</label>
       <input required minlength="3" type="text" id="login" name="login" ngModel #login="ngModel" />
       <div class="alert alert-danger" *ngIf="login.touched && !(login.valid)">
-        <div *ngIf="login.errors?.['required']">Login is required.</div>
-        <div *ngIf="login.errors?.['minlength']">Login should be minimum 3 characters.</div>
+        <div *ngIf="login.errors?.['required']">{{'edit-profile.login-req' | translate}}</div>
+        <div *ngIf="login.errors?.['minlength']">{{'edit-profile.login-min' | translate}}</div>
       </div>
     </div>
 
     <!-- Password input -->
     <div class="input-container">
-      <label class="form-label" for="password">Password</label>
+      <label class="form-label" for="password">{{'edit-profile.password' | translate}}</label>
       <input required minlength="3" type="password" id="password" name="password" ngModel #password="ngModel" />
       <div class="alert alert-danger" *ngIf="password.touched && !(password.valid)">
-        <div *ngIf="password.errors?.['required']">Password is required.</div>
-        <div *ngIf="password.errors?.['minlength']">Password should be minimum 3 characters.</div>
+        <div *ngIf="password.errors?.['required']">{{'edit-profile.password-req' | translate}}</div>
+        <div *ngIf="password.errors?.['minlength']">{{'edit-profile.password-min' | translate}}</div>
       </div>
     </div>
 
-    <button type="submit" class="submit-btn" [disabled]="!f.valid">Save</button>
+    <button type="submit" class="submit-btn" [disabled]="!f.valid">{{'edit-profile.save-btn' | translate}}</button>
 
     <div class="form-bottom">
-      <button (click)="showAccountDelete()">Delete</button>
-      <p> your account?</p>
+      <button (click)="showAccountDelete()">{{'edit-profile.delete-btn' | translate}}</button>
+      <p> {{'edit-profile.account' | translate}}</p>
     </div>
   </form>
 

@@ -116,5 +116,37 @@
     "login-btn": "Kirish",
     "account": "Akkountingiz yo'qmi?",
     "signup-link": "Ro'yhatdan o'tish"
+  },
+  "signup": {
+    "title": "Ro'yhatdan o'tish",
+    "error": "Xatolik yuz berdi, keyinroq qayta urinib ko‘ring.",
+    "name": "Ism",
+    "name-req": "Ism majburiy.",
+    "name-min": "Ism kamida 3 ta belgidan iborat bo'lishi kerak.",
+    "login": "Login",
+    "login-req": "Login majburiy.",
+    "login-min": "Login kamida 3 ta belgidan iborat bo'lishi kerak.",
+    "password": "Parol",
+    "password-req": "Parol majburiy.",
+    "password-min": "Parol kamida 3 ta belgidan iborat bo'lishi kerak.",
+    "signup-btn": "Ro'yhatdan o'tish",
+    "account": "Akkountingiz bormi?",
+    "login-link": "Kirish"
+  },
+  "edit-profile": {
+    "title": "Profilni tahrirlash",
+    "error": "Xatolik yuz berdi, keyinroq qayta urinib ko‘ring.",
+    "name": "Ism",
+    "name-req": "Ism majburiy.",
+    "name-min": "Ism kamida 3 ta belgidan iborat bo'lishi kerak.",
+    "login": "Login",
+    "login-req": "Login majburiy.",
+    "login-min": "Login kamida 3 ta belgidan iborat bo'lishi kerak.",
+    "password": "Parol",
+    "password-req": "Parol majburiy.",
+    "password-min": "Parol kamida 3 ta belgidan iborat bo'lishi kerak.",
+    "save-btn": "Saqlash",
+    "delete-btn": "O'chirish",
+    "account": "akkountingizni?"
   }
 }

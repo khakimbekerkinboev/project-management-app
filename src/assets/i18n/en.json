@@ -116,5 +116,37 @@
     "login-btn": "Login",
     "account": "Don't have an account?",
     "signup-link": "Sign up"
+  },
+  "signup": {
+    "title": "Sign up",
+    "error": "An error occured, please try again later.",
+    "name": "Name",
+    "name-req": "Name is required.",
+    "name-min": "Name should be minimum 3 characters.",
+    "login": "Login",
+    "login-req": "Login is required.",
+    "login-min": "Login should be minimum 3 characters.",
+    "password": "Password",
+    "password-req": "Password is required.",
+    "password-min": "Password should be minimum 3 characters.",
+    "signup-btn": "Sign up",
+    "account": "Already have an account?",
+    "login-link": "Log in"
+  },
+  "edit-profile": {
+    "title": "Edit profile",
+    "error": "An error occured, please try again later.",
+    "name": "Name",
+    "name-req": "Name is required.",
+    "name-min": "Name should be minimum 3 characters.",
+    "login": "Login",
+    "login-req": "Login is required.",
+    "login-min": "Login should be minimum 3 characters.",
+    "password": "Password",
+    "password-req": "Password is required.",
+    "password-min": "Password should be minimum 3 characters.",
+    "save-btn": "Save",
+    "delete-btn": "Delete",
+    "account": "your account?"
   }
 }

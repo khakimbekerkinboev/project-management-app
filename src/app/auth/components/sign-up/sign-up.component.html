@@ -1,45 +1,45 @@
 <div class="sign-up-page">
   <form #f="ngForm" (ngSubmit)="signUp(f.value)">
-    <h2 class="form-title">Sign up</h2>
+    <h2 class="form-title">{{'signup.title' | translate}}</h2>
 
     <div *ngIf="signUpError" class="alert alert-danger">
-      An error occured, please try again later.
+      {{'signup.error' | translate}}
     </div>
 
     <!-- Name input -->
     <div class="input-container">
-      <label class="form-label" for="name">Name</label>
+      <label class="form-label" for="name">{{'signup.name' | translate}}</label>
       <input required minlength="3" type="text" id="name" name="name" ngModel #name="ngModel" />
       <div class="alert alert-danger" *ngIf="name.touched && !(name.valid)">
-        <div *ngIf="name.errors?.['required']">Name is required.</div>
-        <div *ngIf="name.errors?.['minlength']">Name should be minimum 3 characters.</div>
+        <div *ngIf="name.errors?.['required']">{{'signup.name-req' | translate}}</div>
+        <div *ngIf="name.errors?.['minlength']">{{'signup.name-min' | translate}}</div>
       </div>
     </div>
 
     <!-- Login input -->
     <div class="input-container">
-      <label class="form-label" for="login">Login</label>
+      <label class="form-label" for="login">{{'signup.login' | translate}}</label>
       <input required minlength="3" type="text" id="login" name="login" ngModel #login="ngModel" />
       <div class="alert alert-danger" *ngIf="login.touched && !(login.valid)">
-        <div *ngIf="login.errors?.['required']">Login is required.</div>
-        <div *ngIf="login.errors?.['minlength']">Login should be minimum 3 characters.</div>
+        <div *ngIf="login.errors?.['required']">{{'signup.login-req' | translate}}</div>
+        <div *ngIf="login.errors?.['minlength']">{{'signup.login-min' | translate}}</div>
       </div>
     </div>
 
     <!-- Password input -->
     <div class="input-container">
-      <label class="form-label" for="password">Password</label>
+      <label class="form-label" for="password">{{'signup.password' | translate}}</label>
       <input required minlength="3" type="password" id="password" name="password" ngModel #password="ngModel" />
       <div class="alert alert-danger" *ngIf="password.touched && !(password.valid)">
-        <div *ngIf="password.errors?.['required']">Password is required.</div>
-        <div *ngIf="password.errors?.['minlength']">Password should be minimum 3 characters.</div>
+        <div *ngIf="password.errors?.['required']">{{'signup.password-req' | translate}}</div>
+        <div *ngIf="password.errors?.['minlength']">{{'signup.password-min' | translate}}</div>
       </div>
     </div>
 
-    <button type="submit" class="submit-btn" [disabled]="!f.valid">Sign up</button>
+    <button type="submit" class="submit-btn" [disabled]="!f.valid">{{'signup.signup-btn' | translate}}</button>
 
     <div class="form-bottom">
-      <p>Already have an account? <a routerLink="/login">Log in</a></p>
+      <p>{{'signup.account' | translate}} <a routerLink="/login">{{'signup.login-link' | translate}}</a></p>
     </div>
   </form>
 </div>
