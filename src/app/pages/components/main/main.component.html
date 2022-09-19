@@ -3,7 +3,35 @@
     <h2 class="main-title">{{'main.main-title' | translate}}</h2>
     <div class="search-box">
       <label for="search"><i class="fa-solid fa-magnifying-glass"></i></label>
-      <input type="text" id="search" placeholder="Search">
+      <input type="search" id="search" placeholder="Search" (focusout)="hideTaskSearchWindow()"
+        (input)="searchTask($event)">
+    </div>
+
+    <div class="task-search task-search-hidden">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">{{'main.search-task.title' | translate}}</th>
+            <th scope="col">{{'main.search-task.description' | translate}}</th>
+            <th scope="col">{{'main.search-task.path' | translate}}</th>
+            <th scope="col">{{'main.search-task.view' | translate}}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let task of foundTasks">
+            <td scope="row">{{task.order}}</td>
+            <td>{{task.title}}</td>
+            <td>{{task.description}}</td>
+            <td>{{task.boardTitle}} <i class="fa-solid fa-arrow-right-long"></i> {{task.columnTitle}}</td>
+            <td><button (mousedown)="viewTask(task)"><i class="fa-regular fa-eye"></i></button></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="no-result no-result-hidden">
+        <p>{{'main.search-task.no-result' | translate}}</p>
+      </div>
     </div>
   </div>
 
@@ -82,5 +110,4 @@
   <div class="project-delete project-delete-hidden" (click)="hideProjectDelete($event)">
     <app-confirm-delete></app-confirm-delete>
   </div>
-
 </div>

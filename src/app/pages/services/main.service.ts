@@ -8,7 +8,7 @@ export class MainService {
   private _url = 'https://proj-manag-sys.herokuapp.com/boards';
   constructor(private http: HttpClient) {}
 
-  get() {
+  getBoards() {
     return this.http.get(this._url);
   }
 

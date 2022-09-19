@@ -10,13 +10,73 @@ import { MainService } from '../../services/main.service';
 export class MainComponent implements OnInit {
   boards: any = [];
   currentBoard: any = {};
+  tasks: any = [];
+  foundTasks: any = [];
 
-  constructor(private mainService: MainService, private router: Router) {
-    this.mainService.get().subscribe((res) => {
-      this.boards = res;
+  constructor(private mainService: MainService, private router: Router) {}
+
+  /////////////// Search Tasks ///////////////////////
+  searchTask($event: any) {
+    const value = $event.target.value;
+    const taskSearchWindow = document.querySelector('.task-search');
+    const noResult = document.querySelector('.no-result');
+
+    this.foundTasks = this.tasks.filter((task: any) => {
+      return (
+        task.order.toString().includes(value) ||
+        task.title.includes(value) ||
+        task.description.includes(value)
+      );
+    });
+
+    if (taskSearchWindow?.classList.contains('task-search-hidden')) {
+      taskSearchWindow?.classList.remove('task-search-hidden');
+    }
+
+    if (value === '') {
+      this.hideTaskSearchWindow();
+    }
+
+    if (this.foundTasks.length === 0) {
+      noResult?.classList.remove('no-result-hidden');
+    } else {
+      noResult?.classList.add('no-result-hidden');
+    }
+  }
+
+  setAllTasks() {
+    this.boards.forEach((board: any) => {
+      this.mainService
+        .getSpecificBoard(board.id)
+        .subscribe((singleBoard: any) => {
+          singleBoard.columns.forEach((singleColumn: any) => {
+            singleColumn.tasks.forEach((singleTask: any) => {
+              const task = {
+                ...singleTask,
+                columnTitle: singleColumn.title,
+                boardTitle: singleBoard.title,
+                board: singleBoard,
+              };
+              this.tasks.push(task);
+            });
+          });
+        });
     });
   }
 
+  hideTaskSearchWindow() {
+    const searchInput: any = document.querySelector('#search');
+    const taskSearchWindow = document.querySelector('.task-search');
+    taskSearchWindow?.classList.add('task-search-hidden');
+    searchInput.value = '';
+    this.foundTasks = [];
+  }
+
+  viewTask(task: any) {
+    this.navigateToBoard(task.board);
+  }
+
+  /////////////// Create, Update, Delete Boards ///////////////////////
   createBoard(newBoard: object) {
     this.mainService.create(newBoard).subscribe((res) => {
       if (res) {
@@ -149,5 +209,10 @@ export class MainComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.mainService.getBoards().subscribe((res) => {
+      this.boards = res;
+      this.setAllTasks();
+    });
+  }
 }

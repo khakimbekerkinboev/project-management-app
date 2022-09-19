@@ -60,6 +60,13 @@
   },
   "main": {
     "main-title": "Boards",
+    "search-task": {
+      "title": "Title",
+      "description": "Description",
+      "path": "Path",
+      "view": "View",
+      "no-result": "No result"
+    },
     "open-board-btn": "Open",
     "add-board-btn": "Add board",
     "create": {

@@ -60,6 +60,13 @@
   },
   "main": {
     "main-title": "Doskalar",
+    "search-task": {
+      "title": "Sarlavha",
+      "description": "Tavsif",
+      "path": "Manzil",
+      "view": "Ko'rish",
+      "no-result": "Topilmadi"
+    },
     "open-board-btn": "Ochish",
     "add-board-btn": "Doska qo'shish",
     "create": {
