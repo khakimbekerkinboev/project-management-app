@@ -16,7 +16,9 @@ export class HeaderComponent implements OnInit {
     private userService: UserService,
     private translate: TranslateService
   ) {
-    this.userService.setCurrentUserToProfile();
+    if (this.authService.isLoggedIn()) {
+      this.userService.setCurrentUserToProfile();
+    }
   }
 
   changeLang(event: any) {

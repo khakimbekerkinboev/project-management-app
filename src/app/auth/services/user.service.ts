@@ -12,8 +12,7 @@ export class UserService {
   getCurrentUser() {
     const token: any = localStorage.getItem('token');
     const decoded: any = jwtDecode(token);
-    const userId = decoded.userId;
-
+    const userId: any = decoded.userId;
     return this.http.get(this._usersUrl + '/' + userId);
   }
 

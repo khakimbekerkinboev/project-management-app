@@ -14,17 +14,19 @@ import {
 export class TokenInterceptorService implements HttpInterceptor {
   constructor(private injector: Injector) {}
   intercept(
-    req: HttpRequest<any>,
+    request: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    let authService = this.injector.get(AuthService);
+    const authService = this.injector.get(AuthService);
+    const token = authService.getToken();
+    if (token) {
+      request = request.clone({
+        setHeaders: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+    }
 
-    let tokenizedReq = req.clone({
-      setHeaders: {
-        Authorization: `Bearer ${authService.getToken()}`,
-      },
-    });
-
-    return next.handle(tokenizedReq);
+    return next.handle(request);
   }
 }

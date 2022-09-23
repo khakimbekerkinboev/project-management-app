@@ -3,7 +3,8 @@
     <div class="hero-left">
       <h1>{{'homepage.hero.hero-title' | translate}}</h1>
       <p>{{'homepage.hero.hero-text' | translate}}</p>
-      <a routerLink="/sign-up">{{'homepage.hero.start' | translate}}</a>
+      <a routerLink="/sign-up" *ngIf="!authService.isLoggedIn()">{{'homepage.hero.start' | translate}}</a>
+      <a routerLink="/main" *ngIf="authService.isLoggedIn()">{{'homepage.hero.start' | translate}}</a>
     </div>
     <div class="hero-right">
       <img src="../../../../assets/images/hero.png" alt="hero image">
