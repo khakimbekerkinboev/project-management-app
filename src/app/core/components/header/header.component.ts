@@ -52,7 +52,7 @@ window.addEventListener('click', (e: any) => {
   const profileContainer = document.querySelector('.profile-container');
   const accountBtn = document.querySelector('.account-btn');
   const isNotAccountBtn =
-    !e.target?.classList?.contains('fa-chevron-down') &&
+    !e.target?.classList?.contains('fa-caret-down') &&
     !e.target?.classList?.contains('account-btn');
   const profileIsOpen =
     !profileContainer?.classList?.contains('profile-hidden') &&

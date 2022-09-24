@@ -24,10 +24,7 @@
       <a *ngIf="!authService.isLoggedIn()" routerLink="/sign-up" class="signup-btn">{{'header.auth.signup' |
         translate}}</a>
 
-
       <div class="user-profile" *ngIf="authService.isLoggedIn()">
-        <i class="fa-solid fa-circle-user"></i>
-
         <a (click)="toggleProfile()" class="account-btn account-inactive"></a>
       </div>
 
