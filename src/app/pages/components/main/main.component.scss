@@ -270,7 +270,7 @@
   bottom: 0;
   right: 0;
   transform: translate(0, calc(100% - 1rem));
-  width: 50vw;
+  width: 50%;
   background-color: white;
   padding: 1rem;
   border-radius: 0.5rem;
@@ -339,4 +339,48 @@ th:nth-child(5) {
 
 .no-result p {
   margin-bottom: 0;
+}
+
+@media (min-width: 320px) and (max-width: 1279px) {
+  .main-center {
+    grid-template-columns: repeat(auto-fit, 270px);
+    justify-content: space-around;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 599px) {
+  .main-top {
+    flex-direction: column;
+    row-gap: 1rem;
+  }
+
+  .search-box {
+    width: 270px;
+  }
+
+  .search-box input {
+    width: 100%;
+  }
+
+  .project-create form,
+  .project-update form {
+    max-width: 18rem;
+    width: 90vw;
+    padding: 1rem;
+  }
+
+  .project-create .exit-btn,
+  .project-update .exit-btn {
+    display: none;
+  }
+
+  .task-search {
+    width: 100%;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 1200px) {
+  .task-search {
+    width: 75%;
+  }
 }

@@ -555,3 +555,19 @@ body {
 .example-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }
+
+@media (min-width: 320px) and (max-width: 599px) {
+  .column-create form,
+  .task-create form,
+  .task-update form {
+    max-width: 18rem;
+    width: 90vw;
+    padding: 1rem;
+  }
+
+  .column-create .exit-btn,
+  .task-create .exit-btn,
+  .task-update .exit-btn {
+    display: none;
+  }
+}

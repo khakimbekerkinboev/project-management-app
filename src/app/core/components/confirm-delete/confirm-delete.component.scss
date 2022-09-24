@@ -31,3 +31,10 @@
 .delete-btn {
   background-color: #ff0000;
 }
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .delete-modal {
+    width: 18rem;
+    padding: 1rem;
+  }
+}

@@ -60,3 +60,9 @@ form h2 {
 .input-container input.ng-touched.ng-invalid {
   border: 1px solid red;
 }
+
+@media (min-width: 320px) and (max-width: 767px) {
+  form {
+    padding: 1rem;
+  }
+}
