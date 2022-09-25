@@ -1,6 +1,8 @@
+import { catchError, map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import jwtDecode from 'jwt-decode';
+import { of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -28,7 +30,18 @@ export class UserService {
     const token: any = localStorage.getItem('token');
     const decoded: any = jwtDecode(token);
     const userId = decoded.userId;
-    return this.http.put(this._usersUrl + '/' + userId, user);
+    return this.http.put(this._usersUrl + '/' + userId, user).pipe(
+      map((res) => {
+        if (res.hasOwnProperty('id')) {
+          return true;
+        } else {
+          return false;
+        }
+      }),
+      catchError(() => {
+        return of(false);
+      })
+    );
   }
 
   delete() {

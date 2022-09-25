@@ -1,7 +1,9 @@
+import { Router } from '@angular/router';
 import { AuthService } from './../services/auth.service';
-import { Observable } from 'rxjs';
+import { catchError, EMPTY, Observable, throwError } from 'rxjs';
 import { Injectable, Injector } from '@angular/core';
 import {
+  HttpErrorResponse,
   HttpEvent,
   HttpHandler,
   HttpInterceptor,
@@ -18,6 +20,7 @@ export class TokenInterceptorService implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
     const authService = this.injector.get(AuthService);
+    const router = this.injector.get(Router);
     const token = authService.getToken();
     if (token) {
       request = request.clone({
@@ -27,6 +30,15 @@ export class TokenInterceptorService implements HttpInterceptor {
       });
     }
 
-    return next.handle(request);
+    return next.handle(request).pipe(
+      catchError((err) => {
+        if (err instanceof HttpErrorResponse) {
+          if (err.status == 401) {
+            authService.logout();
+          }
+        }
+        return throwError(err);
+      })
+    );
   }
 }
