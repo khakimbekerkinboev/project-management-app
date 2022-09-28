@@ -62,6 +62,10 @@ export class BoardService {
     );
   }
 
+  getAllUsers() {
+    return this.http.get('https://proj-manag-sys.herokuapp.com/users');
+  }
+
   getAllColumns(id: string) {
     return this.http.get(this._url + id + '/columns');
   }

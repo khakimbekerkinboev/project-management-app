@@ -22,7 +22,7 @@ export class UserService {
     this.getCurrentUser().subscribe((res: any) => {
       const accountBtn: any = document.querySelector('.account-btn');
       accountBtn.innerHTML =
-        res.name + '<i class="fa-solid fa-caret-down"></i>';
+        res.name + '<i class="fa-solid fa-angle-down"></i>';
     });
   }
 

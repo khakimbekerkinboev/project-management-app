@@ -16,6 +16,7 @@ import {
 })
 export class BoardComponent implements OnInit {
   boardId: any;
+  users: any = [];
   columns: any = [];
   allTasks: any = [];
   currentColumn: any = {};
@@ -124,6 +125,36 @@ export class BoardComponent implements OnInit {
     this.mainService.getSpecificBoard(this.boardId).subscribe((res: any) => {
       boardTitle.innerText = res.title;
     });
+  }
+
+  getAllUsers() {
+    this.boardService.getAllUsers().subscribe((res) => {
+      if (res) {
+        this.users = res;
+      }
+    });
+  }
+
+  filterUserTasks(event: any) {
+    const columns: any = document.querySelectorAll('.column');
+    const selectedUserId: any = event.target.value;
+    if (selectedUserId === 'All') {
+      this.allTasks.forEach((columnTasks: {}[], index: number) => {
+        columnTasks.forEach((task: any) => {
+          task.color = '#d3d3d3';
+        });
+      });
+    } else {
+      this.allTasks.forEach((columnTasks: {}[]) => {
+        columnTasks.forEach((task: any) => {
+          if (task.userId == selectedUserId) {
+            task.color = '#7aeb7a';
+          } else {
+            task.color = '#d3d3d3';
+          }
+        });
+      });
+    }
   }
 
   getAllColumns() {
@@ -448,5 +479,6 @@ export class BoardComponent implements OnInit {
 
     this.setBoardTitle();
     this.getAllColumns();
+    this.getAllUsers();
   }
 }

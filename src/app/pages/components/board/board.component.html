@@ -4,6 +4,13 @@
       <p>{{'board.exit-btn' | translate}}</p>
     </a>
     <h5 class="board-title"></h5>
+    <div class="user-selector-container">
+      <i class="fa-solid fa-filter"></i>
+      <select class="user-selector" (change)="filterUserTasks($event)">
+        <option selected>All</option>
+        <option [value]="user.id" *ngFor="let user of users">{{user.name}}</option>
+      </select>
+    </div>
   </div>
 
   <div class="columns" cdkDropList cdkDropListOrientation="horizontal" (cdkDropListDropped)="dropColumn($event)"
@@ -25,7 +32,7 @@
 
         <div class="tasks" cdkDropList [cdkDropListData]="allTasks[columns.indexOf(column)]"
           (cdkDropListDropped)="dropTask($event, column)">
-          <div class="task" *ngFor="let task of allTasks[columns.indexOf(column)]"
+          <div class="task" [style.background-color]="task.color" *ngFor="let task of allTasks[columns.indexOf(column)]"
             (click)="showTaskEditWindow($event, column, task )" cdkDrag
             (cdkDragStarted)="setTaskDraggedItem(task, column)">
             <h6>{{task.title}}</h6>
