@@ -567,6 +567,10 @@ body {
 }
 
 @media (min-width: 320px) and (max-width: 599px) {
+  .board-title {
+    display: none;
+  }
+
   .column-create form,
   .task-create form,
   .task-update form {
